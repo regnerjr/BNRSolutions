@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A299l" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uRo-xX-hqd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="uEa-yJ-vSh"/>
+                                </connections>
+                            </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-2y-GsS">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-cd-mR2">
+                                <rect key="frame" x="196" y="20" width="209" height="29"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setMapType:" destination="vXZ-lx-hvc" eventType="valueChanged" id="n26-Jf-fsc"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9S3-cN-onE">
+                                <rect key="frame" x="196" y="56" width="209" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gYg-YP-0TC"/>
+                                    <constraint firstAttribute="width" constant="184" id="wzi-Gg-yBM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wzi-Gg-yBM"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="P4x-rM-9oj"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="uRo-xX-hqd" secondAttribute="height" id="1bB-7d-5yo"/>
+                            <constraint firstAttribute="centerX" secondItem="eKf-2y-GsS" secondAttribute="centerX" id="3CO-vt-2qB"/>
+                            <constraint firstAttribute="centerX" secondItem="uRo-xX-hqd" secondAttribute="centerX" id="3dU-RV-fDE"/>
+                            <constraint firstItem="9S3-cN-onE" firstAttribute="top" secondItem="m3T-cd-mR2" secondAttribute="bottom" constant="17" id="81k-GM-vnf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uRo-xX-hqd" secondAttribute="bottom" id="9yx-Oz-pmR"/>
+                            <constraint firstItem="9S3-cN-onE" firstAttribute="top" secondItem="m3T-cd-mR2" secondAttribute="bottom" constant="8" id="MOf-RI-lPB"/>
+                            <constraint firstAttribute="width" secondItem="uRo-xX-hqd" secondAttribute="width" id="NgZ-M0-paO"/>
+                            <constraint firstItem="m3T-cd-mR2" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="W26-Ey-ewz"/>
+                            <constraint firstItem="9S3-cN-onE" firstAttribute="top" secondItem="m3T-cd-mR2" secondAttribute="bottom" constant="8" id="YK6-jr-oSv"/>
+                            <constraint firstItem="uRo-xX-hqd" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="aFO-bW-yl3"/>
+                            <constraint firstAttribute="centerX" secondItem="9S3-cN-onE" secondAttribute="centerX" id="adS-gF-gxb"/>
+                            <constraint firstAttribute="centerY" secondItem="eKf-2y-GsS" secondAttribute="centerY" id="eXn-ge-3XY"/>
+                            <constraint firstItem="9S3-cN-onE" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="20" id="fZR-tg-Y7U"/>
+                            <constraint firstAttribute="centerX" secondItem="m3T-cd-mR2" secondAttribute="centerX" constant="-0.5" id="jY7-fr-U6h"/>
+                            <constraint firstAttribute="centerY" secondItem="uRo-xX-hqd" secondAttribute="centerY" id="wjz-Fg-Y9c"/>
+                            <constraint firstItem="m3T-cd-mR2" firstAttribute="width" secondItem="9S3-cN-onE" secondAttribute="width" id="zqy-o9-mqq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9yx-Oz-pmR"/>
+                                <exclude reference="aFO-bW-yl3"/>
+                                <exclude reference="81k-GM-vnf"/>
+                                <exclude reference="MOf-RI-lPB"/>
+                                <exclude reference="fZR-tg-Y7U"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="eKf-2y-GsS" id="JsI-7D-o8I"/>
+                        <outlet property="map" destination="uRo-xX-hqd" id="tGS-al-fG6"/>
+                        <outlet property="segmented" destination="m3T-cd-mR2" id="qq9-hh-c3h"/>
+                        <outlet property="textField" destination="9S3-cN-onE" id="Eu8-FZ-hK0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-316" y="-368"/>
+        </scene>
+    </scenes>
+</document>
