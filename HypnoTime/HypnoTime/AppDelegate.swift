@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  HypnoTime
 //
-//  Created by John Regner on 8/30/14.
+//  Created by John on 8/31/14.
 //  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
 //
 
@@ -11,20 +11,11 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
-    var window: UIWindow!
+    var window: UIWindow?
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-
-        //configure window
-        window = UIWindow(frame:UIScreen.mainScreen().bounds)
-        window.backgroundColor = UIColor.whiteColor()
-        window.makeKeyAndVisible()
-
-        //setup view controllers
-        let hvc = HypnosisViewController()
-        window.rootViewController = hvc
-
+        // Override point for customization after application launch.
         return true
     }
 

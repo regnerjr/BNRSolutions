@@ -1,5 +1,5 @@
 //
-//  HypnosisViewController.swift
+//  MapViewController.swift
 //  HypnoTime
 //
 //  Created by John on 8/31/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HypnosisViewController: UIViewController {
+class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

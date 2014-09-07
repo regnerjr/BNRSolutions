@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  HypnoTime
 //
-//  Created by John Regner on 8/30/14.
+//  Created by John on 8/31/14.
 //  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SecondViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()

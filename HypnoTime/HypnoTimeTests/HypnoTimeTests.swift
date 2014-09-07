@@ -2,7 +2,7 @@
 //  HypnoTimeTests.swift
 //  HypnoTimeTests
 //
-//  Created by John Regner on 8/30/14.
+//  Created by John on 8/31/14.
 //  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
 //
 
