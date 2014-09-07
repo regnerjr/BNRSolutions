@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB330DE919B3D31E00A6ADBC /* HypnoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB330DE819B3D31E00A6ADBC /* HypnoView.swift */; };
+		EB330DEB19B3DA5C00A6ADBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB330DEA19B3DA5C00A6ADBC /* MapViewController.swift */; };
+		EB330DED19B3DAEA00A6ADBC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB330DEC19B3DAEA00A6ADBC /* MapKit.framework */; };
 		EB7E4D9919B3CEDB001444AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7E4D9819B3CEDB001444AE /* AppDelegate.swift */; };
-		EB7E4D9B19B3CEDB001444AE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7E4D9A19B3CEDB001444AE /* FirstViewController.swift */; };
-		EB7E4D9D19B3CEDB001444AE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7E4D9C19B3CEDB001444AE /* SecondViewController.swift */; };
+		EB7E4D9B19B3CEDB001444AE /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7E4D9A19B3CEDB001444AE /* TimeViewController.swift */; };
+		EB7E4D9D19B3CEDB001444AE /* HypnoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7E4D9C19B3CEDB001444AE /* HypnoViewController.swift */; };
 		EB7E4DA019B3CEDB001444AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7E4D9E19B3CEDB001444AE /* Main.storyboard */; };
 		EB7E4DA219B3CEDB001444AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7E4DA119B3CEDB001444AE /* Images.xcassets */; };
 		EB7E4DAE19B3CEDC001444AE /* HypnoTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7E4DAD19B3CEDC001444AE /* HypnoTimeTests.swift */; };
@@ -26,11 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB330DE819B3D31E00A6ADBC /* HypnoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HypnoView.swift; path = ../../Hypnosister/Hypnosister3/HypnoView.swift; sourceTree = "<group>"; };
+		EB330DEA19B3DA5C00A6ADBC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EB330DEC19B3DAEA00A6ADBC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EB7E4D9319B3CEDB001444AE /* HypnoTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnoTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7E4D9719B3CEDB001444AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB7E4D9819B3CEDB001444AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB7E4D9A19B3CEDB001444AE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		EB7E4D9C19B3CEDB001444AE /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EB7E4D9A19B3CEDB001444AE /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		EB7E4D9C19B3CEDB001444AE /* HypnoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoViewController.swift; sourceTree = "<group>"; };
 		EB7E4D9F19B3CEDB001444AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB7E4DA119B3CEDB001444AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB7E4DA719B3CEDC001444AE /* HypnoTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypnoTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB330DED19B3DAEA00A6ADBC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				EB7E4D9819B3CEDB001444AE /* AppDelegate.swift */,
-				EB7E4D9A19B3CEDB001444AE /* FirstViewController.swift */,
-				EB7E4D9C19B3CEDB001444AE /* SecondViewController.swift */,
+				EB7E4D9A19B3CEDB001444AE /* TimeViewController.swift */,
+				EB330DE819B3D31E00A6ADBC /* HypnoView.swift */,
+				EB7E4D9C19B3CEDB001444AE /* HypnoViewController.swift */,
+				EB330DEA19B3DA5C00A6ADBC /* MapViewController.swift */,
 				EB7E4D9E19B3CEDB001444AE /* Main.storyboard */,
 				EB7E4DA119B3CEDB001444AE /* Images.xcassets */,
 				EB7E4D9619B3CEDB001444AE /* Supporting Files */,
@@ -90,6 +99,7 @@
 		EB7E4D9619B3CEDB001444AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB330DEC19B3DAEA00A6ADBC /* MapKit.framework */,
 				EB7E4D9719B3CEDB001444AE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -211,9 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7E4D9D19B3CEDB001444AE /* SecondViewController.swift in Sources */,
+				EB330DE919B3D31E00A6ADBC /* HypnoView.swift in Sources */,
+				EB7E4D9D19B3CEDB001444AE /* HypnoViewController.swift in Sources */,
 				EB7E4D9919B3CEDB001444AE /* AppDelegate.swift in Sources */,
-				EB7E4D9B19B3CEDB001444AE /* FirstViewController.swift in Sources */,
+				EB330DEB19B3DA5C00A6ADBC /* MapViewController.swift in Sources */,
+				EB7E4D9B19B3CEDB001444AE /* TimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +413,7 @@
 				EB7E4DB319B3CEDC001444AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB7E4DB419B3CEDC001444AE /* Build configuration list for PBXNativeTarget "HypnoTimeTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +422,7 @@
 				EB7E4DB619B3CEDC001444AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

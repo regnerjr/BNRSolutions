@@ -1,106 +1,172 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6172" systemVersion="14A261f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6167"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
+        <!--Time-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="Time" customClass="TimeViewController" customModule="HypnoTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="161" y="219" width="158" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQr-d4-Ar2">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="142.5" y="269" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGb-Ej-WSI">
+                                <rect key="frame" x="286" y="107" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35w-yE-iEe">
+                                <rect key="frame" x="244" y="179" width="112" height="30"/>
+                                <state key="normal" title="What Time Is It?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getTime:" destination="9pv-A4-QxB" eventType="touchUpInside" id="pqg-Lh-2sR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="iQr-d4-Ar2" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="8qp-4k-ywN"/>
                             <constraint firstItem="iQr-d4-Ar2" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="9hT-Pl-9vo"/>
                             <constraint firstItem="iQr-d4-Ar2" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="GCv-eZ-Lr1"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="35w-yE-iEe" firstAttribute="top" secondItem="xGb-Ej-WSI" secondAttribute="bottom" constant="51" id="Xgr-ai-fbM"/>
+                            <constraint firstAttribute="centerX" secondItem="xGb-Ej-WSI" secondAttribute="centerX" constant="-0.5" id="cqe-zK-xhs"/>
+                            <constraint firstAttribute="centerX" secondItem="35w-yE-iEe" secondAttribute="centerX" id="eEP-QG-uv9"/>
+                            <constraint firstItem="xGb-Ej-WSI" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="87" id="tKD-2a-NsW"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Time" image="Time" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="xGb-Ej-WSI" id="8YD-Lr-FM2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-293"/>
+            <point key="canvasLocation" x="716" y="-161"/>
         </scene>
-        <!--Second View Controller - Second-->
+        <!--HypnoViewController-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="HypnoViewController" customClass="HypnoViewController" customModule="HypnoTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                        <viewControllerLayoutGuide type="top" id="Y28-RQ-u9b"/>
+                        <viewControllerLayoutGuide type="bottom" id="tES-Ta-D5u"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="cv4-LT-cgq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="135" y="219" width="210" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ej5-n5-O85">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
-                                <items>
-                                    <navigationItem id="WaP-O7-m87"/>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="132" y="269" width="216" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-Me-7We" customClass="HypnosisView" customModule="HypnoTime" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="605"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KWc-ro-pTb">
+                                        <rect key="frame" x="223" y="36" width="155" height="29"/>
+                                        <segments>
+                                            <segment title="Red"/>
+                                            <segment title="Green"/>
+                                            <segment title="Blue"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="changeColor:" destination="8rJ-Kc-sve" eventType="valueChanged" id="1qq-Ay-Ejp"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.74870002207900099" green="1" blue="0.80422966347289282" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="605" id="3cY-5n-2fF"/>
+                                    <constraint firstItem="KWc-ro-pTb" firstAttribute="top" secondItem="cWx-Me-7We" secondAttribute="top" constant="36" id="8KP-IQ-gvZ"/>
+                                    <constraint firstAttribute="width" constant="600" id="JHr-cT-jcX"/>
+                                    <constraint firstAttribute="centerX" secondItem="KWc-ro-pTb" secondAttribute="centerX" constant="-0.5" id="irv-C7-Y3j"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.41444435056498685" blue="0.55038897567119527" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ej5-n5-O85" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailing" id="C9p-N0-R4o"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="centerX" secondItem="NDk-cv-Gan" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstItem="ej5-n5-O85" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ZQW-8Y-bT4"/>
-                            <constraint firstItem="ej5-n5-O85" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="dYc-7R-70W"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="cWx-Me-7We" firstAttribute="centerX" secondItem="Y28-RQ-u9b" secondAttribute="centerX" id="4dX-AV-KyR"/>
+                            <constraint firstAttribute="centerX" secondItem="cWx-Me-7We" secondAttribute="centerX" id="DsM-92-Avm"/>
+                            <constraint firstItem="cWx-Me-7We" firstAttribute="top" secondItem="Y28-RQ-u9b" secondAttribute="bottom" constant="-20" id="I8x-Fk-myT"/>
+                            <constraint firstItem="cWx-Me-7We" firstAttribute="leading" secondItem="cv4-LT-cgq" secondAttribute="leadingMargin" id="Trc-Q5-yJV"/>
+                            <constraint firstAttribute="centerY" secondItem="cWx-Me-7We" secondAttribute="centerY" constant="-2.5" id="ad4-5N-LlQ"/>
+                            <constraint firstItem="tES-Ta-D5u" firstAttribute="top" secondItem="cWx-Me-7We" secondAttribute="bottom" constant="127" id="dZb-Y4-maz"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4dX-AV-KyR"/>
+                                <exclude reference="Trc-Q5-yJV"/>
+                                <exclude reference="dZb-Y4-maz"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Hypno" image="Hypno" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="HypnoView" destination="cWx-Me-7We" id="u9P-zd-wm4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="293"/>
+            <point key="canvasLocation" x="716" y="510"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="6a5-Y7-6io">
+            <objects>
+                <viewController id="yWs-TO-9yZ" customClass="MapViewController" customModule="HypnoTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Iv-d8-vhc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bfu-fq-oWb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lev-p4-uc9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcB-uD-ELo">
+                                <rect key="frame" x="265" y="247" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qPF-Yg-Zhu">
+                                <rect key="frame" x="16" y="20" width="568" height="531"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="kcB-uD-ELo" secondAttribute="centerY" constant="42" id="I3y-gB-GHU"/>
+                            <constraint firstItem="Bfu-fq-oWb" firstAttribute="top" secondItem="qPF-Yg-Zhu" secondAttribute="bottom" id="Ono-AX-nvF"/>
+                            <constraint firstAttribute="centerX" secondItem="qPF-Yg-Zhu" secondAttribute="centerX" constant="-76" id="UQb-0J-PSX"/>
+                            <constraint firstAttribute="centerY" secondItem="qPF-Yg-Zhu" secondAttribute="centerY" constant="-97" id="YpW-dT-P4c"/>
+                            <constraint firstAttribute="centerX" secondItem="kcB-uD-ELo" secondAttribute="centerX" id="lCz-ku-lsG"/>
+                            <constraint firstItem="qPF-Yg-Zhu" firstAttribute="top" secondItem="8Iv-d8-vhc" secondAttribute="bottom" id="lqd-HZ-cUU"/>
+                            <constraint firstItem="qPF-Yg-Zhu" firstAttribute="leading" secondItem="lev-p4-uc9" secondAttribute="leadingMargin" id="otc-Gd-kAr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qPF-Yg-Zhu" secondAttribute="trailing" id="txl-RT-fy5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UQb-0J-PSX"/>
+                                <exclude reference="YpW-dT-P4c"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="P9S-da-tH1"/>
+                    <connections>
+                        <outlet property="worldMap" destination="qPF-Yg-Zhu" id="7xB-fm-1Yd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUt-On-B0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718" y="1340"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -115,15 +181,17 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="yWs-TO-9yZ" kind="relationship" relationship="viewControllers" id="yMw-GA-85e"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-140" y="510"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Hypno" width="30" height="30"/>
+        <image name="Time" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -8,8 +8,17 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class TimeViewController: UIViewController {
                             
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBAction func getTime(sender: AnyObject) {
+        let now = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        
+        timeLabel.text = formatter.stringFromDate(now)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
