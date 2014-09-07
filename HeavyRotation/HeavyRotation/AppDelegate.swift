@@ -13,13 +13,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow!
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+        let dev = UIDevice.currentDevice()
+        dev.beginGeneratingDeviceOrientationNotifications()
+
+        //Handled by selector
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: "orientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: dev)
+
+        //using an inline closure
+        nc.addObserverForName(UIDeviceOrientationDidChangeNotification, object: dev, queue: NSOperationQueue.mainQueue(), usingBlock: {
+            note in if let object: UIDevice = note.object? as? UIDevice {
+                println("orientationChangedInlineBlock: \(object.orientation.toRaw())")
+            }})
+
+        //using a named closure
+        nc.addObserverForName(UIDeviceOrientationDidChangeNotification, object: dev, queue: NSOperationQueue.currentQueue(), usingBlock: orientationBlock)
 
         window.backgroundColor = UIColor.whiteColor()
         window.makeKeyAndVisible()
         return true
+    }
+
+    let orientationBlock = { (note: NSNotification!) -> () in
+        if let deviceNotification = note.object? as? UIDevice {
+            println("orientationBlock \(deviceNotification.orientation.toRaw())")
+        }
+    }
+
+    func orientationChanged(note: NSNotification) -> () {
+        if let object: UIDevice = note.object? as? UIDevice {
+            println("orientationChanged: \(object.orientation.toRaw())")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
