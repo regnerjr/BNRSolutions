@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //using a named closure
         nc.addObserverForName(UIDeviceOrientationDidChangeNotification, object: dev, queue: NSOperationQueue.currentQueue(), usingBlock: orientationBlock)
 
+
+        let hvc = HeavyViewController(nibName: "HeavyViewController", bundle: nil)
+        self.window.rootViewController = hvc
+
         window.backgroundColor = UIColor.whiteColor()
         window.makeKeyAndVisible()
         return true
@@ -39,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let orientationBlock = { (note: NSNotification!) -> () in
         if let deviceNotification = note.object? as? UIDevice {
-            println("orientationBlock \(deviceNotification.orientation.toRaw())")
+            println("orientationBlock: \(deviceNotification.orientation.toRaw())")
         }
     }
 
