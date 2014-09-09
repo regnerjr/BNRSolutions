@@ -11,20 +11,18 @@ import UIKit
 class HeavyViewController: UIViewController {
 
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.toRaw()) + Int(UIInterfaceOrientationMask.LandscapeLeft.toRaw()) + Int(UIInterfaceOrientationMask.LandscapeRight.toRaw()) + Int(UIInterfaceOrientationMask.PortraitUpsideDown.toRaw())
+        return
+            Int(UIInterfaceOrientationMask.Portrait.toRaw()) +
+            Int(UIInterfaceOrientationMask.LandscapeLeft.toRaw()) +
+            Int(UIInterfaceOrientationMask.LandscapeRight.toRaw()) +
+            Int(UIInterfaceOrientationMask.PortraitUpsideDown.toRaw())
     }
-
-//    override func shouldAutorotate() -> Bool {
-//        return true
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
