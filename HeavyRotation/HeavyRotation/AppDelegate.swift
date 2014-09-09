@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nc = NSNotificationCenter.defaultCenter()
         nc.addObserverForName(UIDeviceOrientationDidChangeNotification, object: dev, queue: NSOperationQueue.currentQueue(), usingBlock: orientationBlock)
 
-
         let hvc = HeavyViewController(nibName: "HeavyViewController", bundle: nil)
         self.window.rootViewController = hvc
 
