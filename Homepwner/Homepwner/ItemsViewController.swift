@@ -11,10 +11,11 @@ import UIKit
 class ItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
     let cellIdentifier = "CELL"
-    //@IBOutlet var tableView: UITableView?
 
-    // Register the UITableViewCell class with the tableView
-//    self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+    convenience override init() {
+        self.init(style: .Grouped)
+        self.title = "Grouped"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,6 @@ class ItemsViewController: UITableViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    
-    
     // - MARK: TableViewDelegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return BNRItemStore.sharedStore.getAllItems().count
@@ -39,6 +38,7 @@ class ItemsViewController: UITableViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.text = p.description
         return cell
     }
+ 
     // UITableViewDataSource methods
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
