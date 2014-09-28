@@ -59,4 +59,20 @@ extension ItemsViewController : UITableViewDelegate {
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        return 40
+    }
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            return nil
+        }
+        let label =  UILabel(frame: CGRect(x: 0, y: 10, width: 200, height: 40))
+        label.text = "No more items"
+        return label
+    }
+    
 }
