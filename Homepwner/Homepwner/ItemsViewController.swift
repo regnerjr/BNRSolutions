@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class ItemsViewController: UITableViewController {
 
     let cellIdentifier = "CELL"
 
@@ -19,32 +19,37 @@ class ItemsViewController: UITableViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 1..<5 {
+        for i in 1...8 {
             BNRItemStore.sharedStore.createItem()
         }
     }
+}
 
-    // - MARK: TableViewDelegate
+extension ItemsViewController : UITableViewDataSource {
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BNRItemStore.sharedStore.getAllItems().count
+        let sectionMethod = section == 0 ? BNRItemStore.getUnder50DollarItems : BNRItemStore.getOver50DollarItems
+        return sectionMethod(BNRItemStore.sharedStore)().count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        
         //dequeue a cell or create a new one
         var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as UITableViewCell! ?? UITableViewCell(style:.Default, reuseIdentifier: "CELL")
-
-        let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
+        let sectionMethod =  indexPath.section == 0 ? BNRItemStore.getUnder50DollarItems : BNRItemStore.getOver50DollarItems
+        
+        let p = sectionMethod(BNRItemStore.sharedStore)()[indexPath.row]
         cell.textLabel?.text = p.description
         return cell
     }
- 
-    // UITableViewDataSource methods
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
- 
-    // UITableViewDelegate methods
+}
+
+extension ItemsViewController : UITableViewDelegate {
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let alert = UIAlertController(title: "Item selected", message: "You selected item \(indexPath.row)", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK",

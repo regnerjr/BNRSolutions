@@ -20,7 +20,7 @@ class BNRItemStore: NSObject {
     }
 
     private var allItems = [BNRItem]()
-
+    
     override init(){
         super.init()
     }
@@ -33,6 +33,13 @@ class BNRItemStore: NSObject {
 
     func getAllItems() -> [BNRItem]{
         return allItems
+    }
+    
+    func getUnder50DollarItems() -> [BNRItem] {
+            return allItems.filter{ $0.valueInDollars <= 50 }
+    }
+    func getOver50DollarItems() -> [BNRItem] {
+            return allItems.filter{ $0.valueInDollars > 50 }
     }
 
 }
