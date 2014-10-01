@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class ItemsViewController: UITableViewController {
 
-    let cellIdentifier = "CELL"
+    @IBOutlet var headerView: UIView!
 
     convenience override init() {
         self.init(style: .Grouped)
@@ -18,20 +18,35 @@ class ItemsViewController: UITableViewController, UITableViewDelegate, UITableVi
     }
 
     override func viewDidLoad() {
+        headerView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)[0] as UIView
         super.viewDidLoad()
         for i in 1..<5 {
             BNRItemStore.sharedStore.createItem()
         }
     }
+    @IBAction func addNewItem(sender: AnyObject) {
+        println("Pushed add button")
+    }
+    @IBAction func toggleEditingMode(sender: AnyObject) {
+        println("Edit button")
+    }
+    
 
-    // - MARK: TableViewDelegate
+    
+}
+
+extension ItemsViewController : UITableViewDataSource {
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return BNRItemStore.sharedStore.getAllItems().count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        //dequeue a cell or create a new one
         var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as UITableViewCell! ?? UITableViewCell(style:.Default, reuseIdentifier: "CELL")
 
         let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
@@ -39,19 +54,21 @@ class ItemsViewController: UITableViewController, UITableViewDelegate, UITableVi
         return cell
     }
  
-    // UITableViewDataSource methods
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+
+}
+
+extension ItemsViewController : UITableViewDelegate {
+
+     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        println("loading header view")
+        return self.headerView
     }
- 
-    // UITableViewDelegate methods
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let alert = UIAlertController(title: "Item selected", message: "You selected item \(indexPath.row)", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK",
-            style: UIAlertActionStyle.Default,
-            handler: {
-                (alert: UIAlertAction!) in println("An alert of type \(alert.style.hashValue) was tapped!")
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
+
+    override func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        println("returning height = \(self.headerView.bounds.height)")
+        return self.headerView.bounds.size.height
+    }
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.headerView.bounds.size.height
     }
 }
