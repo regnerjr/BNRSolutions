@@ -20,19 +20,29 @@ class ItemsViewController: UITableViewController {
     override func viewDidLoad() {
         headerView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)[0] as UIView
         super.viewDidLoad()
-        for i in 1..<5 {
-            BNRItemStore.sharedStore.createItem()
-        }
     }
     @IBAction func addNewItem(sender: AnyObject) {
-        println("Pushed add button")
+
+        // Create a new BNRItem and add it to the store 
+        BNRItemStore.sharedStore.createItem()
+
+        let lastRow = BNRItemStore.sharedStore.getAllItems().count - 1
+        let ip = NSIndexPath(forRow: lastRow, inSection: 0)
+        // Insert this new row into the table. 
+        self.tableView.insertRowsAtIndexPaths([ip], withRowAnimation: .Top)
     }
     @IBAction func toggleEditingMode(sender: AnyObject) {
-        println("Edit button")
+        let editingButton = sender as UIButton
+        //toggle editing
+        if editing {
+            editingButton.setTitle("Edit", forState: .Normal)
+            self.setEditing(false, animated: true)
+        }
+        else {
+            editingButton.setTitle("Done", forState: .Normal)
+            self.setEditing(true, animated: true)
+        }
     }
-    
-
-    
 }
 
 extension ItemsViewController : UITableViewDataSource {
@@ -53,22 +63,33 @@ extension ItemsViewController : UITableViewDataSource {
         cell.textLabel?.text = p.description
         return cell
     }
- 
 
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // If the table view is asking to commit a delete command...
+        if editingStyle == .Delete {
+            let items = BNRItemStore.sharedStore.getAllItems()
+            let p = items[indexPath.row]
+            BNRItemStore.sharedStore.removeItem(p)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        BNRItemStore.sharedStore.moveItem(sourceIndexPath.row, toIndex: destinationIndexPath.row)
+    }
 }
 
 extension ItemsViewController : UITableViewDelegate {
 
      override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        println("loading header view")
         return self.headerView
     }
 
-    override func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        println("returning height = \(self.headerView.bounds.height)")
-        return self.headerView.bounds.size.height
-    }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return self.headerView.bounds.size.height
+    }
+
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+        return "Remove"
     }
 }

@@ -35,7 +35,15 @@ class BNRItemStore: NSObject {
         return allItems
     }
 
+    func removeItem(p: BNRItem ) {
+        allItems = allItems.filter{$0 !== p}
+    }
+
+    func moveItem(from: Int, toIndex to: Int){
+        if from == to {return}
+        let p = allItems[from]
+        allItems.removeAtIndex(from)
+        allItems.insert(p, atIndex: to)
+    }
+
 }
-
-
-
