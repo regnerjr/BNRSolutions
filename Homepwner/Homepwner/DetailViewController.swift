@@ -21,6 +21,31 @@ class DetailViewController: UIViewController {
             }
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func numberPadResignFirstResponder(sender: AnyObject) {
+        if (valueField.editing){
+            valueField.endEditing(true)
+        }
+    }
+
+    @IBAction func pushDatePickerViewController(sender: AnyObject) {
+        let datePicker = DateViewController(nibName: "DateViewController", bundle: nil)
+datePicker.item = item
+        navigationController?.pushViewController(datePicker, animated: true)
+
+        //use navigation controller stuff to push it on stack
+        // when the presented view is dismissed, we need to save the newly selected date
+        
+    }
+
+}
+
+// MARK - View lifecycle
+extension DetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.groupTableViewBackgroundColor()
@@ -37,12 +62,6 @@ class DetailViewController: UIViewController {
         formatter.timeStyle = NSDateFormatterStyle.NoStyle
         dateLabel.text = formatter.stringFromDate(item.dateCreated)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(true)
@@ -50,11 +69,5 @@ class DetailViewController: UIViewController {
         item.itemName = nameField.text
         item.serialNumber = serialField.text
         item.valueInDollars = valueField.text.toInt() ?? 0 //default to 0 dollars if the price is messed up
-    }
-
-    @IBAction func numberPadResignFirstResponder(sender: AnyObject) {
-        if (valueField.editing){
-            valueField.endEditing(true)
-        }
     }
 }

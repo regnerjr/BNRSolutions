@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateViewController" customModule="Homepwner" customModuleProvider="target">
+            <connections>
+                <outlet property="dateLabel" destination="Gg2-jE-2Yq" id="hMA-0c-OUn"/>
+                <outlet property="datePicker" destination="zXd-qw-mUK" id="TKV-m7-bMC"/>
+                <outlet property="view" destination="GhD-Wu-3Ze" id="3cl-D8-Ydr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="GhD-Wu-3Ze">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a new date." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg2-jE-2Yq">
+                    <rect key="frame" x="223" y="289" width="154" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zXd-qw-mUK">
+                    <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                    <date key="date" timeIntervalSinceReferenceDate="434428522.07947898">
+                        <!--2014-10-08 02:35:22 +0000-->
+                    </date>
+                    <connections>
+                        <action selector="dateChanged:" destination="-1" eventType="valueChanged" id="bjd-ld-zTu"/>
+                    </connections>
+                </datePicker>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't Commit Insurance Fraud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsV-a2-hcF">
+                    <rect key="frame" x="182" y="318" width="236" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zXd-qw-mUK" firstAttribute="leading" secondItem="GhD-Wu-3Ze" secondAttribute="leading" id="26y-ef-Sjj"/>
+                <constraint firstAttribute="bottom" secondItem="zXd-qw-mUK" secondAttribute="bottom" id="8wo-WP-HbT"/>
+                <constraint firstItem="zXd-qw-mUK" firstAttribute="top" secondItem="GhD-Wu-3Ze" secondAttribute="top" constant="438" id="9Z4-Xt-Udu"/>
+                <constraint firstItem="IsV-a2-hcF" firstAttribute="centerX" secondItem="Gg2-jE-2Yq" secondAttribute="centerX" id="Meb-iV-DWj"/>
+                <constraint firstAttribute="centerY" secondItem="Gg2-jE-2Yq" secondAttribute="centerY" id="Wbm-Fb-ByT"/>
+                <constraint firstAttribute="centerX" secondItem="Gg2-jE-2Yq" secondAttribute="centerX" id="fg0-z7-cLK"/>
+                <constraint firstItem="IsV-a2-hcF" firstAttribute="top" secondItem="Gg2-jE-2Yq" secondAttribute="bottom" constant="8" id="mTP-FH-67C"/>
+                <constraint firstAttribute="trailing" secondItem="zXd-qw-mUK" secondAttribute="trailing" id="z4p-dM-qRt"/>
+            </constraints>
+            <point key="canvasLocation" x="349" y="382"/>
+        </view>
+    </objects>
+</document>

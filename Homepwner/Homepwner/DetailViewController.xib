@@ -32,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xp0-M5-Noe">
-                    <rect key="frame" x="204" y="232" width="387" height="21"/>
+                    <rect key="frame" x="8" y="232" width="583" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -54,23 +54,36 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="97" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3KJ-j6-pj4">
-                    <rect key="frame" x="300" y="166" width="291" height="30"/>
+                    <rect key="frame" x="300" y="175" width="291" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-LR-ytO">
+                    <rect key="frame" x="8" y="261" width="583" height="30"/>
+                    <state key="normal" title="Change Date">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="pushDatePickerViewController:" destination="-1" eventType="touchUpInside" id="Bfr-FM-1Ex"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Ez3-dX-3KT" firstAttribute="top" secondItem="gWP-I1-mrf" secondAttribute="top" constant="73" id="7bL-sZ-MnC"/>
+                <constraint firstItem="Xp0-M5-Noe" firstAttribute="leading" secondItem="gWP-I1-mrf" secondAttribute="leading" constant="8" id="7fb-pJ-5Me"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="trailing" secondItem="3KJ-j6-pj4" secondAttribute="trailing" id="9d8-d9-vnK"/>
+                <constraint firstItem="9iu-LR-ytO" firstAttribute="trailing" secondItem="Xp0-M5-Noe" secondAttribute="trailing" id="Azb-5N-Tmm"/>
                 <constraint firstItem="AK3-xe-Xsc" firstAttribute="top" secondItem="Ez3-dX-3KT" secondAttribute="bottom" constant="32" id="BCv-t8-rIc"/>
+                <constraint firstItem="9iu-LR-ytO" firstAttribute="leading" secondItem="Xp0-M5-Noe" secondAttribute="leading" id="BRY-BE-ZPv"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="leading" secondItem="2On-v4-4OI" secondAttribute="leading" id="KF6-lD-bSL"/>
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="leading" secondItem="zOI-F4-qg3" secondAttribute="leading" id="NM8-Li-rGg"/>
                 <constraint firstAttribute="trailing" secondItem="BUg-Ug-lcz" secondAttribute="trailing" constant="8" id="TFa-pn-10Y"/>
-                <constraint firstItem="2On-v4-4OI" firstAttribute="centerY" secondItem="3KJ-j6-pj4" secondAttribute="centerY" constant="8.5" id="UzC-nq-ZgQ"/>
+                <constraint firstItem="2On-v4-4OI" firstAttribute="centerY" secondItem="3KJ-j6-pj4" secondAttribute="centerY" id="UzC-nq-ZgQ"/>
                 <constraint firstItem="Ez3-dX-3KT" firstAttribute="leading" secondItem="AK3-xe-Xsc" secondAttribute="leading" id="VYY-Wi-01g"/>
                 <constraint firstItem="zOI-F4-qg3" firstAttribute="trailing" secondItem="3KJ-j6-pj4" secondAttribute="trailing" constant="1" id="Vas-EN-zxv"/>
+                <constraint firstItem="9iu-LR-ytO" firstAttribute="top" secondItem="Xp0-M5-Noe" secondAttribute="bottom" constant="8" id="WM9-7U-ThP"/>
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="centerY" secondItem="Ez3-dX-3KT" secondAttribute="centerY" constant="0.5" id="ZB5-sm-fUw"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="top" secondItem="2On-v4-4OI" secondAttribute="bottom" constant="32" id="b4W-Dj-nAX"/>
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="leading" secondItem="Ez3-dX-3KT" secondAttribute="trailing" constant="50" id="bq7-hJ-IeI"/>
@@ -81,10 +94,15 @@
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="trailing" secondItem="zOI-F4-qg3" secondAttribute="trailing" id="ymj-cB-3Jm"/>
                 <constraint firstItem="zOI-F4-qg3" firstAttribute="leading" secondItem="3KJ-j6-pj4" secondAttribute="leading" id="zPJ-Hj-RoN"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="KF6-lD-bSL"/>
+                </mask>
+            </variation>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="YtG-kl-59Q" appends="YES" id="zro-Ti-F5p"/>
             </connections>
-            <point key="canvasLocation" x="456" y="430"/>
+            <point key="canvasLocation" x="472" y="443"/>
         </view>
         <swipeGestureRecognizer direction="down" id="YtG-kl-59Q">
             <connections>
