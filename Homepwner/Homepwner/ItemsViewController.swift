@@ -10,17 +10,20 @@ import UIKit
 
 class ItemsViewController: UITableViewController {
 
-    @IBOutlet var headerView: UIView!
-
     convenience override init() {
-        self.init(style: .Grouped)
-        self.title = "Grouped"
+        self.init(style: UITableViewStyle.Plain)
+
+        navigationItem.title = "Homepwner"
+        //add bar button item
+        let newItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addNewItem:"))
+        navigationItem.rightBarButtonItem = newItem
+        navigationItem.leftBarButtonItem = editButtonItem()
     }
 
     override func viewDidLoad() {
-        headerView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)[0] as UIView
         super.viewDidLoad()
     }
+
     @IBAction func addNewItem(sender: AnyObject) {
 
         // Create a new BNRItem and add it to the store 
@@ -31,6 +34,7 @@ class ItemsViewController: UITableViewController {
         // Insert this new row into the table. 
         self.tableView.insertRowsAtIndexPaths([ip], withRowAnimation: .Top)
     }
+    
     @IBAction func toggleEditingMode(sender: AnyObject) {
         let editingButton = sender as UIButton
         //toggle editing
@@ -81,15 +85,20 @@ extension ItemsViewController : UITableViewDataSource {
 
 extension ItemsViewController : UITableViewDelegate {
 
-     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.headerView
-    }
-
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return self.headerView.bounds.size.height
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
         return "Remove"
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+
+        let selectedItem = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
+        detailViewController.item = selectedItem
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
