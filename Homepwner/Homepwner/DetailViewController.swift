@@ -52,4 +52,9 @@ class DetailViewController: UIViewController {
         item.valueInDollars = valueField.text.toInt() ?? 0 //default to 0 dollars if the price is messed up
     }
 
+    @IBAction func numberPadResignFirstResponder(sender: AnyObject) {
+        if (valueField.editing){
+            valueField.endEditing(true)
+        }
+    }
 }

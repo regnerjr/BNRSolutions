@@ -60,6 +60,7 @@
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Ez3-dX-3KT" firstAttribute="top" secondItem="gWP-I1-mrf" secondAttribute="top" constant="73" id="7bL-sZ-MnC"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="trailing" secondItem="3KJ-j6-pj4" secondAttribute="trailing" id="9d8-d9-vnK"/>
@@ -80,7 +81,16 @@
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="trailing" secondItem="zOI-F4-qg3" secondAttribute="trailing" id="ymj-cB-3Jm"/>
                 <constraint firstItem="zOI-F4-qg3" firstAttribute="leading" secondItem="3KJ-j6-pj4" secondAttribute="leading" id="zPJ-Hj-RoN"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="YtG-kl-59Q" appends="YES" id="zro-Ti-F5p"/>
+            </connections>
             <point key="canvasLocation" x="456" y="430"/>
         </view>
+        <swipeGestureRecognizer direction="down" id="YtG-kl-59Q">
+            <connections>
+                <action selector="numberPadResignFirstResponder:" destination="-1" id="fkT-N8-2j7"/>
+                <outlet property="delegate" destination="-1" id="FD9-YO-9nM"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
 </document>
