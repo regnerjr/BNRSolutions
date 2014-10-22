@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6246" systemVersion="14A379b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6239"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -80,7 +80,7 @@
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="trailing" secondItem="zOI-F4-qg3" secondAttribute="trailing" id="ymj-cB-3Jm"/>
                 <constraint firstItem="zOI-F4-qg3" firstAttribute="leading" secondItem="3KJ-j6-pj4" secondAttribute="leading" id="zPJ-Hj-RoN"/>
             </constraints>
-            <point key="canvasLocation" x="456" y="430"/>
+            <point key="canvasLocation" x="618" y="420"/>
         </view>
     </objects>
 </document>
