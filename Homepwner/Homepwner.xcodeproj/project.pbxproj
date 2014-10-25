@@ -14,6 +14,7 @@
 		521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB92719BFF0810007B687 /* HomepwnerTests.swift */; };
 		52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC079019C142EC00A607B5 /* ItemsViewController.swift */; };
 		52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CF423219C62E2500E0753D /* Default-568h@2x.png */; };
+		EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA290FB19FBDA200040A625 /* BNRImageStore.swift */; };
 		EBFAF8F919C64AAF00CDFC37 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */; };
 		EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		521EB92719BFF0810007B687 /* HomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerTests.swift; sourceTree = "<group>"; };
 		52CC079019C142EC00A607B5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		52CF423219C62E2500E0753D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		EBA290FB19FBDA200040A625 /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
 		EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
 		EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				52CF423219C62E2500E0753D /* Default-568h@2x.png */,
 				EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */,
 				EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */,
+				EBA290FB19FBDA200040A625 /* BNRImageStore.swift */,
 				52CC079019C142EC00A607B5 /* ItemsViewController.swift */,
 				521EB91119BFF0810007B687 /* AppDelegate.swift */,
 				521EB91819BFF0810007B687 /* Images.xcassets */,
@@ -225,6 +228,7 @@
 				52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */,
 				521130AD19E1E5FB006B64C2 /* DetailViewController.swift in Sources */,
 				EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */,
+				EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */,
 				521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

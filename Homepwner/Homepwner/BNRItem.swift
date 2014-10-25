@@ -13,6 +13,7 @@ class BNRItem : NSObject{
     var serialNumber: String
     var valueInDollars: Int
     var dateCreated: NSDate
+    var imageKey: String?
 
     override var description: String{
     get{

@@ -64,7 +64,7 @@ extension ItemsViewController : UITableViewDataSource {
         var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as UITableViewCell! ?? UITableViewCell(style:.Default, reuseIdentifier: "CELL")
 
         let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
-        cell.textLabel?.text = p.description
+        cell.textLabel.text = p.description
         return cell
     }
 
