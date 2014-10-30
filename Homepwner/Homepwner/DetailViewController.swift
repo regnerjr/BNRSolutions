@@ -62,12 +62,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         let picker = UIImagePickerController()
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            picker.sourceType = UIImagePickerControllerSourceType.Camera
-        } else {
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        }
-        picker.delegate = self
+        let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(.Camera)
+        picker.sourceType = isCameraAvailable ? .Camera : .PhotoLibrary
         
         self.presentViewController(picker, animated: true, completion: nil)
     }
@@ -75,10 +71,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         self.view.endEditing(true)
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         let image = info[UIImagePickerControllerOriginalImage]! as UIImage
         imageView.image = image
-        
         //delete the old image if one exists
         if let key = item.imageKey {
             BNRImageStore.sharedStore.deleteImageForKey(key)
