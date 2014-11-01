@@ -61,14 +61,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="97" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3KJ-j6-pj4">
-                    <rect key="frame" x="300" y="166" width="291" height="30"/>
+                    <rect key="frame" x="300" y="175" width="291" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="mTf-w4-u8Y"/>
                     </connections>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nyq-zV-288">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nyq-zV-288">
                     <rect key="frame" x="0.0" y="261" width="600" height="295"/>
                 </imageView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VgV-ii-bcv">
@@ -79,19 +79,26 @@
                                 <action selector="takePicture:" destination="-1" id="6NR-ti-hML"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fgR-sw-EC9"/>
+                        <barButtonItem systemItem="trash" id="Dza-Aj-buu">
+                            <connections>
+                                <action selector="removeImage:" destination="-1" id="7hb-0l-s0A"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="VgV-ii-bcv" firstAttribute="top" secondItem="nyq-zV-288" secondAttribute="bottom" id="6vd-1q-mFP"/>
                 <constraint firstItem="Ez3-dX-3KT" firstAttribute="top" secondItem="gWP-I1-mrf" secondAttribute="top" constant="73" id="7bL-sZ-MnC"/>
+                <constraint firstItem="3KJ-j6-pj4" firstAttribute="centerY" secondItem="2On-v4-4OI" secondAttribute="centerY" constant="0.5" id="8Hl-lJ-XJT"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="trailing" secondItem="3KJ-j6-pj4" secondAttribute="trailing" id="9d8-d9-vnK"/>
                 <constraint firstItem="AK3-xe-Xsc" firstAttribute="top" secondItem="Ez3-dX-3KT" secondAttribute="bottom" constant="32" id="BCv-t8-rIc"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="leading" secondItem="2On-v4-4OI" secondAttribute="leading" id="KF6-lD-bSL"/>
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="leading" secondItem="zOI-F4-qg3" secondAttribute="leading" id="NM8-Li-rGg"/>
                 <constraint firstAttribute="trailing" secondItem="BUg-Ug-lcz" secondAttribute="trailing" constant="8" id="TFa-pn-10Y"/>
                 <constraint firstAttribute="centerX" secondItem="nyq-zV-288" secondAttribute="centerX" id="UGD-u5-2gr"/>
-                <constraint firstItem="2On-v4-4OI" firstAttribute="centerY" secondItem="3KJ-j6-pj4" secondAttribute="centerY" constant="8.5" id="UzC-nq-ZgQ"/>
                 <constraint firstItem="Ez3-dX-3KT" firstAttribute="leading" secondItem="AK3-xe-Xsc" secondAttribute="leading" id="VYY-Wi-01g"/>
                 <constraint firstItem="zOI-F4-qg3" firstAttribute="trailing" secondItem="3KJ-j6-pj4" secondAttribute="trailing" constant="1" id="Vas-EN-zxv"/>
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="centerY" secondItem="Ez3-dX-3KT" secondAttribute="centerY" constant="0.5" id="ZB5-sm-fUw"/>
@@ -101,7 +108,6 @@
                 <constraint firstItem="nyq-zV-288" firstAttribute="top" secondItem="Xp0-M5-Noe" secondAttribute="bottom" constant="8" id="fUa-y5-I5b"/>
                 <constraint firstItem="nyq-zV-288" firstAttribute="leading" secondItem="gWP-I1-mrf" secondAttribute="leading" id="gfg-Eh-stG"/>
                 <constraint firstItem="2On-v4-4OI" firstAttribute="top" secondItem="AK3-xe-Xsc" secondAttribute="bottom" constant="32" id="hKz-zB-Hoc"/>
-                <constraint firstAttribute="bottom" secondItem="nyq-zV-288" secondAttribute="bottom" constant="44" id="o93-p7-PYf"/>
                 <constraint firstItem="2On-v4-4OI" firstAttribute="leading" secondItem="AK3-xe-Xsc" secondAttribute="leading" id="txH-2e-GPw"/>
                 <constraint firstItem="zOI-F4-qg3" firstAttribute="centerY" secondItem="AK3-xe-Xsc" secondAttribute="centerY" constant="0.5" id="wCV-tP-2Zk"/>
                 <constraint firstAttribute="centerX" secondItem="Ez3-dX-3KT" secondAttribute="trailing" constant="50" id="wb6-GZ-YGf"/>
@@ -114,7 +120,7 @@
             <connections>
                 <action selector="backgroundTapped:" destination="-1" eventType="touchUpInside" id="X3B-oL-qCk"/>
             </connections>
-            <point key="canvasLocation" x="778" y="434"/>
+            <point key="canvasLocation" x="994" y="448"/>
         </view>
     </objects>
 </document>

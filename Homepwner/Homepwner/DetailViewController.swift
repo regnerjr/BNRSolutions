@@ -8,6 +8,16 @@
 
 import UIKit
 
+//define bind operator
+infix operator >>> { associativity left precedence 150 }
+func >>><A, B>(a: A?, f: A -> B?) -> B? {
+    if let x = a {
+        return f(x)
+    } else {
+        return .None
+    }
+}
+
 class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var nameField: UITextField!
@@ -37,13 +47,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
         formatter.timeStyle = NSDateFormatterStyle.NoStyle
         dateLabel.text = formatter.stringFromDate(item.dateCreated)
-        if let imageKey = item.imageKey {
-            let imageToDisplay = BNRImageStore.sharedStore.imageForKey(imageKey)! // if key exists there should be an associated image
-            imageView.image = imageToDisplay
-        }
-        else {
-            imageView.image = nil
-        }
+        let imageToDisplay = item.imageKey >>> BNRImageStore.sharedStore.imageForKey
+        imageView.image = imageToDisplay ?? nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,10 +67,18 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
         let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(.Camera)
         picker.sourceType = isCameraAvailable ? .Camera : .PhotoLibrary
         
         self.presentViewController(picker, animated: true, completion: nil)
+    }
+    @IBAction func removeImage(sender: AnyObject) {
+        //set imageview.image empty
+        imageView.image = nil
+        //remove image from cache
+        item.imageKey >>> BNRImageStore.sharedStore.deleteImageForKey
     }
     @IBAction func backgroundTapped(sender: AnyObject) {
         self.view.endEditing(true)
@@ -73,7 +86,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
 
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        let image = info[UIImagePickerControllerOriginalImage]! as UIImage
+        let image = info[UIImagePickerControllerEditedImage]! as UIImage
         imageView.image = image
         //delete the old image if one exists
         if let key = item.imageKey {
