@@ -64,13 +64,21 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         item.serialNumber = serialField.text
         item.valueInDollars = valueField.text.toInt() ?? 0 //default to 0 dollars if the price is messed up
     }
-    
+
+    //Configure Image Picker and present it
     @IBAction func takePicture(sender: UIBarButtonItem) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(.Camera)
         picker.sourceType = isCameraAvailable ? .Camera : .PhotoLibrary
+        if picker.sourceType == .Camera {
+            //             let bottomBar = picker.view.findView(picker.view, withName:"PLCropOverlayBottomBar")
+
+            let overlay = CameraOverlayView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - 100))
+            overlay.backgroundColor = UIColor.clearColor()
+            picker.cameraOverlayView = overlay
+        }
         
         self.presentViewController(picker, animated: true, completion: nil)
     }
