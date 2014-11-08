@@ -24,15 +24,28 @@ class ItemsViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     @IBAction func addNewItem(sender: AnyObject) {
 
-        // Create a new BNRItem and add it to the store 
-        BNRItemStore.sharedStore.createItem()
+        let detailController = DetailViewController(newItem: true)
+        let newItem = BNRItemStore.sharedStore.createItem()
+        detailController.item = newItem
+        detailController.dismissPopoverCompletionBlock = { self.tableView.reloadData() }
 
-        let lastRow = BNRItemStore.sharedStore.getAllItems().count - 1
-        let ip = NSIndexPath(forRow: lastRow, inSection: 0)
-        // Insert this new row into the table. 
-        self.tableView.insertRowsAtIndexPaths([ip], withRowAnimation: .Top)
+        let navController = UINavigationController(rootViewController: detailController)
+        navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        navController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(navController, animated: true, completion: nil)
+        let popPC = navController.popoverPresentationController
+
+        popPC?.barButtonItem = self.navigationItem.rightBarButtonItem //if we were using the popover style these would be important
+        popPC?.permittedArrowDirections = UIPopoverArrowDirection.Any //but for now they are just here.
+        popPC?.delegate = self
+
     }
     
     @IBAction func toggleEditingMode(sender: AnyObject) {
@@ -49,7 +62,7 @@ class ItemsViewController: UITableViewController {
     }
 }
 
-extension ItemsViewController : UITableViewDataSource {
+extension ItemsViewController: UITableViewDataSource {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -83,22 +96,21 @@ extension ItemsViewController : UITableViewDataSource {
     }
 }
 
-extension ItemsViewController : UITableViewDelegate {
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
+extension ItemsViewController: UITableViewDelegate {
 
     override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
         return "Remove"
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        let detailViewController = DetailViewController(newItem: false)
 
         let selectedItem = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
         detailViewController.item = selectedItem
         navigationController?.pushViewController(detailViewController, animated: true)
     }
+}
+
+extension ItemsViewController: UIPopoverPresentationControllerDelegate {
+
 }

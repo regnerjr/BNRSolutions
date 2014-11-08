@@ -52,7 +52,8 @@ class BNRItem : NSObject{
 }
 
 func randomNumberLessThan(maxNumber: Int) -> Int {
-    return Int(arc4random()) % maxNumber
+    //this hack is here because without it this crashes on 32 bit architecture. 😢
+    return Int(arc4random() & 0x7FFF_FFFF ) % maxNumber //mask off top bit
 }
 
 func arrayOfZeroThroughNine() -> [String] {
