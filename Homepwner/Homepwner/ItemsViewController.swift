@@ -37,8 +37,8 @@ class ItemsViewController: UITableViewController {
         detailController.dismissPopoverCompletionBlock = { self.tableView.reloadData() }
 
         let navController = UINavigationController(rootViewController: detailController)
-        navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        navController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        navController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+        navController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
         self.presentViewController(navController, animated: true, completion: nil)
         let popPC = navController.popoverPresentationController
 
