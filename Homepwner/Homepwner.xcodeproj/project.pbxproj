@@ -12,6 +12,7 @@
 		521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB91119BFF0810007B687 /* AppDelegate.swift */; };
 		521EB91919BFF0810007B687 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521EB91819BFF0810007B687 /* Images.xcassets */; };
 		521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB92719BFF0810007B687 /* HomepwnerTests.swift */; };
+		526DDD8D1A0EDC8C00E71EAE /* pictPopBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DDD8C1A0EDC8C00E71EAE /* pictPopBGView.swift */; };
 		52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC079019C142EC00A607B5 /* ItemsViewController.swift */; };
 		52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CF423219C62E2500E0753D /* Default-568h@2x.png */; };
 		EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA290FB19FBDA200040A625 /* BNRImageStore.swift */; };
@@ -39,6 +40,7 @@
 		521EB92119BFF0810007B687 /* HomepwnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomepwnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		521EB92619BFF0810007B687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521EB92719BFF0810007B687 /* HomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerTests.swift; sourceTree = "<group>"; };
+		526DDD8C1A0EDC8C00E71EAE /* pictPopBGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pictPopBGView.swift; sourceTree = "<group>"; };
 		52CC079019C142EC00A607B5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		52CF423219C62E2500E0753D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EBA290FB19FBDA200040A625 /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				521130AE19E1E660006B64C2 /* DetailViewController.xib */,
+				526DDD8C1A0EDC8C00E71EAE /* pictPopBGView.swift */,
 				521130AC19E1E5FB006B64C2 /* DetailViewController.swift */,
 				52CF423219C62E2500E0753D /* Default-568h@2x.png */,
 				EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */,
@@ -230,6 +233,7 @@
 				521130AD19E1E5FB006B64C2 /* DetailViewController.swift in Sources */,
 				EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */,
 				EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */,
+				526DDD8D1A0EDC8C00E71EAE /* pictPopBGView.swift in Sources */,
 				521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

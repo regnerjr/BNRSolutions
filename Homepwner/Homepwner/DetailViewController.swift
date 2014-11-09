@@ -85,6 +85,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         popPC?.barButtonItem = self.cameraBarButtonItem
         popPC?.permittedArrowDirections = UIPopoverArrowDirection.Any
         popPC?.delegate = self
+        popPC?.popoverBackgroundViewClass = pictPopBGView.self
     }
 
     @IBAction func backgroundTapped(sender: AnyObject) {

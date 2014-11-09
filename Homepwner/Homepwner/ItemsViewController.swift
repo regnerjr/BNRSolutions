@@ -45,7 +45,6 @@ class ItemsViewController: UITableViewController {
         popPC?.barButtonItem = self.navigationItem.rightBarButtonItem //if we were using the popover style these would be important
         popPC?.permittedArrowDirections = UIPopoverArrowDirection.Any //but for now they are just here.
         popPC?.delegate = self
-
     }
     
     @IBAction func toggleEditingMode(sender: AnyObject) {
