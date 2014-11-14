@@ -32,7 +32,7 @@ class BNRImageStore: NSObject {
     imageDictionary[key] = image
 
     let imagePath = imagePathForKey(key)
-    let data = UIImageJPEGRepresentation(image, 0.5)
+    let data = UIImagePNGRepresentation(image)
     data.writeToFile(imagePath, atomically: true)
     return imageDictionary
   }
