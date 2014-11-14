@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522D47521A15ABBC00017392 /* BNRMapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D47511A15ABBC00017392 /* BNRMapPoint.swift */; };
 		524A830819A58EB4002790E9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524A830719A58EB4002790E9 /* MapKit.framework */; };
 		525EDE60199C59E50026872A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EDE5F199C59E50026872A /* AppDelegate.swift */; };
 		525EDE62199C59E50026872A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EDE61199C59E50026872A /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522D47511A15ABBC00017392 /* BNRMapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRMapPoint.swift; sourceTree = "<group>"; };
 		524A830719A58EB4002790E9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		525EDE5A199C59E50026872A /* WhereAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525EDE5E199C59E50026872A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				525EDE5F199C59E50026872A /* AppDelegate.swift */,
 				525EDE61199C59E50026872A /* ViewController.swift */,
+				522D47511A15ABBC00017392 /* BNRMapPoint.swift */,
 				525EDE63199C59E50026872A /* Main.storyboard */,
 				525EDE66199C59E50026872A /* Images.xcassets */,
 				525EDE5D199C59E50026872A /* Supporting Files */,
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522D47521A15ABBC00017392 /* BNRMapPoint.swift in Sources */,
 				525EDE62199C59E50026872A /* ViewController.swift in Sources */,
 				525EDE60199C59E50026872A /* AppDelegate.swift in Sources */,
 			);

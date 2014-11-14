@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  WhereAmI
-//
-//  Created by John Regner on 8/13/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 import MapKit
@@ -108,28 +100,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return true
     }
 }
-
-
-class BNRMapPoint: NSObject , MKAnnotation {
-
-    var title: String
-    let coordinate: CLLocationCoordinate2D
-    let subtitle: String
-
-    init(title: String, coordinate: CLLocationCoordinate2D){
-        self.title = title
-        self.coordinate = coordinate
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .MediumStyle
-        let whenTagged: NSDate = NSDate()
-        let formattedDate = formatter.stringFromDate(whenTagged)
-        subtitle = formattedDate
-        super.init()
-    }
-    convenience override init() {
-        let home: String = "Home Town"
-        let loc: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.07, longitude: -89.32)
-        self.init(title: home, coordinate: loc)
-    }
-}
-
