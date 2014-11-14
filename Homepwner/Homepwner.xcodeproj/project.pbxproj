@@ -14,6 +14,7 @@
 		521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB92719BFF0810007B687 /* HomepwnerTests.swift */; };
 		52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC079019C142EC00A607B5 /* ItemsViewController.swift */; };
 		52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CF423219C62E2500E0753D /* Default-568h@2x.png */; };
+		EB013ECD1A12E30200662EDA /* generic_functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB013ECC1A12E30200662EDA /* generic_functions.swift */; };
 		EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA290FB19FBDA200040A625 /* BNRImageStore.swift */; };
 		EBFAF8F919C64AAF00CDFC37 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */; };
 		EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */; };
@@ -41,6 +42,7 @@
 		521EB92719BFF0810007B687 /* HomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerTests.swift; sourceTree = "<group>"; };
 		52CC079019C142EC00A607B5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		52CF423219C62E2500E0753D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		EB013ECC1A12E30200662EDA /* generic_functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generic_functions.swift; sourceTree = "<group>"; };
 		EBA290FB19FBDA200040A625 /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
 		EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
 		EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemStore.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		521EB90E19BFF0810007B687 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				EB013ECC1A12E30200662EDA /* generic_functions.swift */,
 				521130AE19E1E660006B64C2 /* DetailViewController.xib */,
 				521130AC19E1E5FB006B64C2 /* DetailViewController.swift */,
 				52CF423219C62E2500E0753D /* Default-568h@2x.png */,
@@ -168,7 +171,7 @@
 		521EB90419BFF0810007B687 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "In Your Dreams Software";
 				TargetAttributes = {
 					521EB90B19BFF0810007B687 = {
@@ -231,6 +234,7 @@
 				EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */,
 				EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */,
 				521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */,
+				EB013ECD1A12E30200662EDA /* generic_functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +293,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";

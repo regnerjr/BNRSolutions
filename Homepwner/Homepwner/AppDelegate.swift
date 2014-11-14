@@ -26,5 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         return true
     }
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        let success = BNRItemStore.sharedStore.saveChanges()
+        if (success){
+            println("Saved all items")
+        } else {
+            println("Could not save any of the BNRItems")
+        }
+    }
 }
 

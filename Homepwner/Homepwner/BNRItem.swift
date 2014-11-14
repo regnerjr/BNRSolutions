@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BNRItem : NSObject{
+class BNRItem : NSObject, NSCoding{
     var itemName: String
     var serialNumber: String
     var valueInDollars: Int
@@ -20,6 +20,7 @@ class BNRItem : NSObject{
         return "\(itemName) (\(serialNumber)): Worth $\(valueInDollars), recorded on \(dateCreated)"
     }
     }
+
     init(WithItemName name: String, valueInDollars: Int, serialNumber: String ){
         self.itemName = name
         self.valueInDollars = valueInDollars
@@ -27,8 +28,13 @@ class BNRItem : NSObject{
         self.dateCreated = NSDate()
         super.init()
     }
+    
     convenience init(WithItemName name: String, serialNumber: String){
         self.init(WithItemName: name, valueInDollars: 0, serialNumber: serialNumber)
+    }
+
+    convenience override init(){
+        self.init(WithItemName: "", valueInDollars: 0, serialNumber: "")
     }
 
     class func randomItem () -> BNRItem {
@@ -41,12 +47,30 @@ class BNRItem : NSObject{
 
         let randomValue = randomNumberLessThan(100)
 
-        let numbers = arrayOfZeroThroughNine()
-        let chars = arrayOfAThroughZ()
-
+        let numbers = Array(0..<10).map{ String($0) }
+        let chars = Array(0x61...0x7A).map{String(UnicodeScalar($0))}
         let randomSerialNumber =
         "\(numbers[randomNumberLessThan(10)])\(chars[randomNumberLessThan(26)])\(numbers[randomNumberLessThan(10)])\(chars[randomNumberLessThan(26)])\(numbers[randomNumberLessThan(10)])"
         return BNRItem(WithItemName: randomName, valueInDollars: randomValue, serialNumber: randomSerialNumber)
+    }
+
+
+    //NSCoding
+    required init(coder aDecoder: NSCoder) {
+        self.itemName = aDecoder.decodeObjectForKey("itemName") as String
+        self.serialNumber = aDecoder.decodeObjectForKey("serialNumber") as String
+        self.dateCreated = aDecoder.decodeObjectForKey("dateCreated") as NSDate
+        self.imageKey = aDecoder.decodeObjectForKey("imageKey") as? String
+        self.valueInDollars = Int(aDecoder.decodeIntForKey("valueInDollars") as Int32)
+        super.init()
+    }
+
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(itemName, forKey: "itemName")
+        aCoder.encodeObject(serialNumber, forKey: "serialNumber")
+        aCoder.encodeObject(dateCreated, forKey: "dateCreated")
+        aCoder.encodeObject(imageKey, forKey: "imageKey")
+        aCoder.encodeInt(Int32(valueInDollars), forKey: "valueInDollars")
     }
 
 }
@@ -56,26 +80,10 @@ func randomNumberLessThan(maxNumber: Int) -> Int {
     return Int(arc4random() & 0x7FFF_FFFF ) % maxNumber //mask off top bit
 }
 
-func arrayOfZeroThroughNine() -> [String] {
-    var numbers = [String]()
-    for num in 0...9 {
-        numbers.append(String(num))
-    }
-    return numbers
-}
-
-func arrayOfAThroughZ() -> [String] {
-    var chars = [String]()
-    for char in 0x61...0x7A { //ascii 'a' is code point 0x61 => 97, 'z' is 0x7A
-        chars.append(String(UnicodeScalar(char)))
-    }
-    return chars
-}
-
 class BNRContainer : BNRItem {
     //properly written can contain instances of BNRContainer
     var subItems = [BNRItem]()
-    var collectionValue: Int { //calculated property must be declared as var
+    var collectionValue: Int {
         var sum: Int = 0
         for item in subItems {
             if let container = item as? BNRContainer {
@@ -89,8 +97,8 @@ class BNRContainer : BNRItem {
         return sum
     }
     
-    init(WithContainerName name: String){
-        super.init(WithItemName: name, valueInDollars: 0, serialNumber: "")
+    convenience init(WithContainerName name: String){
+        self.init(WithItemName: name, valueInDollars: 0, serialNumber: "")
     }
 
     func addItem(item:BNRItem) -> (){
@@ -98,12 +106,7 @@ class BNRContainer : BNRItem {
     }
 
     func description() -> String {
-        //returns the container name and value in dollars, and list of items
-        var items: String = ""
-        for item in subItems {
-            items += item.itemName
-            items += " "
-        }
+        var items: String = subItems.reduce(""){ $0 + $1.itemName + " "}
         return "Container: \(itemName)\nValue: \(collectionValue)\nWith Items: \(items)"
     }
 }
