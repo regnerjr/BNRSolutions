@@ -13,6 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Configure Location Manager
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -48,7 +49,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     func foundLocation(loc: CLLocation){
         let coord: CLLocationCoordinate2D = loc.coordinate
-        let mapPoint: BNRMapPoint = BNRMapPoint(title: textField.text, coordinate: coord)
+        let mapPoint = BNRMapPoint(title: textField.text, coordinate: coord)
         map.addAnnotation(mapPoint)
 
         let region = MKCoordinateRegionMakeWithDistance(coord, 250, 250)
@@ -63,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     ///MARK: CLLocationManager Delegate Methods
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
 
-        var t: NSTimeInterval? = locations[0].timestamp?.timeIntervalSinceNow
+        var t = locations[0].timestamp?.timeIntervalSinceNow
         if t == nil { //if no time interval then just quit
             return
         }

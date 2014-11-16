@@ -17,6 +17,7 @@ class BNRMapPoint: NSObject, MKAnnotation, NSCoding{
     subtitle = formattedDate
     super.init()
   }
+    
   convenience override init() {
     let home: String = "Home Town"
     let loc: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.07, longitude: -89.32)
