@@ -10,4 +10,8 @@ import UIKit
 
 class HomepwnerItemCell: UITableViewCell {
   
+  @IBOutlet weak var thumbnailView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var serialNumberLabel: UILabel!
+  @IBOutlet weak var valueLabel: UILabel!
 }

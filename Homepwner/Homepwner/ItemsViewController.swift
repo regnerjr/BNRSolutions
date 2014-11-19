@@ -22,6 +22,9 @@ class ItemsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      //load custom tableview cell from nib
+      let nib = UINib(nibName: "HomepwnerItemCell", bundle: nil)
+      self.tableView.registerNib(nib, forCellReuseIdentifier: "HomepwnerItemCell")
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -74,10 +77,11 @@ extension ItemsViewController: UITableViewDataSource {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as UITableViewCell! ?? UITableViewCell(style:.Default, reuseIdentifier: "CELL")
-
         let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
-        cell.textLabel.text = p.description
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomepwnerItemCell") as HomepwnerItemCell
+        cell.nameLabel.text = p.itemName
+        cell.serialNumberLabel.text = p.serialNumber
+        cell.valueLabel.text = "$\(p.valueInDollars)"
         return cell
     }
 
