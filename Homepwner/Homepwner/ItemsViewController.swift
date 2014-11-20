@@ -78,10 +78,16 @@ extension ItemsViewController: UITableViewDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomepwnerItemCell") as HomepwnerItemCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(
+                                "HomepwnerItemCell") as HomepwnerItemCell
         cell.nameLabel.text = p.itemName
         cell.serialNumberLabel.text = p.serialNumber
         cell.valueLabel.text = "$\(p.valueInDollars)"
+        cell.thumbnailView.image = p.thumbnail
+
+        cell.controller = self
+        cell.tableView = tableView
+
         return cell
     }
 
@@ -116,5 +122,14 @@ extension ItemsViewController: UITableViewDelegate {
 }
 
 extension ItemsViewController: UIPopoverPresentationControllerDelegate {
+
+}
+
+extension UITableViewController {
+
+  func showImage(sender:AnyObject, atIndexPath indexPath:NSIndexPath){
+      println("Goint to show the image for ip: \(indexPath)")
+  }
+
 
 }

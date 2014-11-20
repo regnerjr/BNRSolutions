@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -63,8 +63,16 @@
                         <outlet property="delegate" destination="-1" id="mTf-w4-u8Y"/>
                     </connections>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="308" translatesAutoresizingMaskIntoConstraints="NO" id="nyq-zV-288">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="nyq-zV-288">
                     <rect key="frame" x="0.0" y="248" width="600" height="308"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="250" constant="308" id="NOc-aK-BcW"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="NOc-aK-BcW"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VgV-ii-bcv">
                     <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -95,6 +103,7 @@
                 <constraint firstItem="VgV-ii-bcv" firstAttribute="top" secondItem="nyq-zV-288" secondAttribute="bottom" id="CJT-oM-c81"/>
                 <constraint firstItem="Xp0-M5-Noe" firstAttribute="leading" secondItem="2On-v4-4OI" secondAttribute="leading" id="KF6-lD-bSL"/>
                 <constraint firstItem="BUg-Ug-lcz" firstAttribute="leading" secondItem="zOI-F4-qg3" secondAttribute="leading" id="NM8-Li-rGg"/>
+                <constraint firstItem="nyq-zV-288" firstAttribute="top" secondItem="Xp0-M5-Noe" secondAttribute="bottom" constant="8" id="OyA-a4-7GG"/>
                 <constraint firstAttribute="trailing" secondItem="BUg-Ug-lcz" secondAttribute="trailing" constant="8" id="TFa-pn-10Y"/>
                 <constraint firstItem="P3a-1d-DvN" firstAttribute="top" secondItem="gWP-I1-mrf" secondAttribute="top" constant="8" id="USy-0t-8RM"/>
                 <constraint firstItem="Ez3-dX-3KT" firstAttribute="leading" secondItem="AK3-xe-Xsc" secondAttribute="leading" id="VYY-Wi-01g"/>

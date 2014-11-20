@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -18,7 +17,7 @@
                         <rect key="frame" x="8" y="2" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="S4n-WQ-vE9"/>
-                            <constraint firstAttribute="width" secondItem="voa-2J-NlW" secondAttribute="height" multiplier="44:35" constant="-10.285714285714285" id="wLB-4q-YKx"/>
+                            <constraint firstAttribute="height" constant="40" id="n0B-gl-FXb"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Cy-2bV">
@@ -39,14 +38,27 @@
                         <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-C4-m5w">
+                        <rect key="frame" x="8" y="2" width="40" height="40"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="showImage:" destination="Dy8-MV-ITd" eventType="touchUpInside" id="8Vd-R0-HpX"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="D3A-lP-2Zg" firstAttribute="leading" secondItem="di7-fh-dgT" secondAttribute="leading" id="5tF-9o-14r"/>
+                    <constraint firstItem="voa-2J-NlW" firstAttribute="top" secondItem="cZF-C4-m5w" secondAttribute="top" id="750-Xb-NX4"/>
+                    <constraint firstItem="cZF-C4-m5w" firstAttribute="height" secondItem="voa-2J-NlW" secondAttribute="height" id="9Sg-Rt-pRJ"/>
                     <constraint firstItem="D3A-lP-2Zg" firstAttribute="leading" secondItem="voa-2J-NlW" secondAttribute="trailing" constant="8" id="A5I-db-gP3"/>
                     <constraint firstItem="voa-2J-NlW" firstAttribute="leading" secondItem="Uea-5J-gZm" secondAttribute="leadingMargin" id="GUm-Y4-3Ew"/>
                     <constraint firstItem="WwW-Cy-2bV" firstAttribute="trailing" secondItem="Uea-5J-gZm" secondAttribute="trailingMargin" id="Gz0-dP-82J"/>
+                    <constraint firstItem="cZF-C4-m5w" firstAttribute="leading" secondItem="voa-2J-NlW" secondAttribute="leading" id="Psj-n5-gNL"/>
                     <constraint firstAttribute="centerY" secondItem="WwW-Cy-2bV" secondAttribute="centerY" id="Sfo-eg-6lc"/>
                     <constraint firstItem="di7-fh-dgT" firstAttribute="bottom" secondItem="voa-2J-NlW" secondAttribute="bottom" id="egD-b8-hqW"/>
+                    <constraint firstItem="cZF-C4-m5w" firstAttribute="width" secondItem="voa-2J-NlW" secondAttribute="width" id="s7X-i1-5l4"/>
                     <constraint firstAttribute="centerY" secondItem="voa-2J-NlW" secondAttribute="centerY" id="vKf-9U-KHa"/>
                     <constraint firstItem="D3A-lP-2Zg" firstAttribute="top" secondItem="voa-2J-NlW" secondAttribute="top" constant="6" id="ziS-gQ-woc"/>
                 </constraints>
@@ -57,7 +69,7 @@
                 <outlet property="thumbnailView" destination="voa-2J-NlW" id="wPC-rh-lBm"/>
                 <outlet property="valueLabel" destination="WwW-Cy-2bV" id="FuN-6t-gcE"/>
             </connections>
-            <point key="canvasLocation" x="605" y="326"/>
+            <point key="canvasLocation" x="605" y="323"/>
         </tableViewCell>
     </objects>
 </document>
