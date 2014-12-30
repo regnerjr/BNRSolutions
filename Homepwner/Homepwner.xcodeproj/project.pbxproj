@@ -96,6 +96,8 @@
 				522F2CC21A1C2C510053BB2E /* HomepwnerItemCell.xib */,
 				521130AE19E1E660006B64C2 /* DetailViewController.xib */,
 				521130AC19E1E5FB006B64C2 /* DetailViewController.swift */,
+				525F99D61A4135B50071E9DC /* imageView.storyboard */,
+				525F99D81A4136680071E9DC /* ImageView.swift */,
 				52CF423219C62E2500E0753D /* Default-568h@2x.png */,
 				EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */,
 				EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */,
@@ -119,6 +121,7 @@
 		521EB92419BFF0810007B687 /* HomepwnerTests */ = {
 			isa = PBXGroup;
 			children = (
+				52C86E371A522313006A68C8 /* generic_functions_tests.swift */,
 				521EB92719BFF0810007B687 /* HomepwnerTests.swift */,
 				521EB92519BFF0810007B687 /* Supporting Files */,
 			);
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				521EB91919BFF0810007B687 /* Images.xcassets in Resources */,
+				525F99D71A4135B50071E9DC /* imageView.storyboard in Resources */,
 				52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */,
 				522F2CC31A1C2C510053BB2E /* HomepwnerItemCell.xib in Resources */,
 				521130AF19E1E660006B64C2 /* DetailViewController.xib in Resources */,
@@ -241,6 +245,7 @@
 				EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */,
 				EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */,
 				521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */,
+				525F99D91A4136680071E9DC /* ImageView.swift in Sources */,
 				522F2CC11A1C2C1F0053BB2E /* HomepwnerItemCell.swift in Sources */,
 				EB013ECD1A12E30200662EDA /* generic_functions.swift in Sources */,
 			);
@@ -251,6 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */,
+				52C86E381A522313006A68C8 /* generic_functions_tests.swift in Sources */,
+				52B3121D1A520FFD00184C0D /* BNRItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
