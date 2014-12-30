@@ -1,5 +1,11 @@
 import UIKit
 
+
+func randomNumberLessThan(maxNumber: Int) -> Int {
+  //this hack is here because without it this crashes on 32 bit architecture. 😢
+  return Int(arc4random() & 0x7FFF_FFFF ) % maxNumber //mask off top bit
+}
+
 class BNRItem : NSObject, NSCoding{
   var itemName: String
   var serialNumber: String
@@ -81,7 +87,7 @@ class BNRItem : NSObject, NSCoding{
     UIGraphicsEndImageContext()
   }
 
-  //NSCoding
+  // MARK - NSCoding
   required init(coder aDecoder: NSCoder) {
     self.itemName = aDecoder.decodeObjectForKey("itemName") as String
     self.serialNumber = aDecoder.decodeObjectForKey("serialNumber") as String
@@ -101,35 +107,4 @@ class BNRItem : NSObject, NSCoding{
     aCoder.encodeObject(thumbnailData, forKey: "thumbnailData")
   }
 
-}
-
-class BNRContainer : BNRItem {
-  //properly written can contain instances of BNRContainer
-  var subItems = [BNRItem]()
-  var collectionValue: Int {
-    var sum: Int = 0
-    for item in subItems {
-      if let container = item as? BNRContainer {
-        sum += container.collectionValue
-        sum += container.valueInDollars
-      }
-      else { //else item is just a BNRItem
-      sum += item.valueInDollars
-      }
-    }
-    return sum
-  }
-  
-  convenience init(WithContainerName name: String){
-    self.init(WithItemName: name, valueInDollars: 0, serialNumber: "")
-  }
-
-  func addItem(item:BNRItem) -> (){
-    subItems.append(item)
-  }
-
-  func description() -> String {
-    var items: String = subItems.reduce(""){ $0 + $1.itemName + " "}
-    return "Container: \(itemName)\nValue: \(collectionValue)\nWith Items: \(items)"
-  }
 }

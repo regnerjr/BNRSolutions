@@ -18,8 +18,3 @@ func <*><A,B>(f:(A -> B)?, a: A?) -> B? {
   case .None: return .None
   }
 }
-
-func randomNumberLessThan(maxNumber: Int) -> Int {
-  //this hack is here because without it this crashes on 32 bit architecture. 😢
-  return Int(arc4random() & 0x7FFF_FFFF ) % maxNumber //mask off top bit
-}

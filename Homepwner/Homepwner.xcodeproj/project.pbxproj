@@ -14,6 +14,11 @@
 		521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB92719BFF0810007B687 /* HomepwnerTests.swift */; };
 		522F2CC11A1C2C1F0053BB2E /* HomepwnerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F2CC01A1C2C1F0053BB2E /* HomepwnerItemCell.swift */; };
 		522F2CC31A1C2C510053BB2E /* HomepwnerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F2CC21A1C2C510053BB2E /* HomepwnerItemCell.xib */; };
+		525F99D71A4135B50071E9DC /* imageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525F99D61A4135B50071E9DC /* imageView.storyboard */; };
+		525F99D91A4136680071E9DC /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F99D81A4136680071E9DC /* ImageView.swift */; };
+		52B3121D1A520FFD00184C0D /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */; };
+		52C86E381A522313006A68C8 /* generic_functions_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E371A522313006A68C8 /* generic_functions_tests.swift */; };
+		52C86E3A1A52E069006A68C8 /* BNRContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E391A52E069006A68C8 /* BNRContainer.swift */; };
 		52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC079019C142EC00A607B5 /* ItemsViewController.swift */; };
 		52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CF423219C62E2500E0753D /* Default-568h@2x.png */; };
 		EB013ECD1A12E30200662EDA /* generic_functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB013ECC1A12E30200662EDA /* generic_functions.swift */; };
@@ -44,6 +49,10 @@
 		521EB92719BFF0810007B687 /* HomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerTests.swift; sourceTree = "<group>"; };
 		522F2CC01A1C2C1F0053BB2E /* HomepwnerItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepwnerItemCell.swift; sourceTree = "<group>"; };
 		522F2CC21A1C2C510053BB2E /* HomepwnerItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomepwnerItemCell.xib; sourceTree = "<group>"; };
+		525F99D61A4135B50071E9DC /* imageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = imageView.storyboard; sourceTree = "<group>"; };
+		525F99D81A4136680071E9DC /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		52C86E371A522313006A68C8 /* generic_functions_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generic_functions_tests.swift; sourceTree = "<group>"; };
+		52C86E391A52E069006A68C8 /* BNRContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRContainer.swift; sourceTree = "<group>"; };
 		52CC079019C142EC00A607B5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		52CF423219C62E2500E0753D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EB013ECC1A12E30200662EDA /* generic_functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generic_functions.swift; sourceTree = "<group>"; };
@@ -100,6 +109,7 @@
 				525F99D81A4136680071E9DC /* ImageView.swift */,
 				52CF423219C62E2500E0753D /* Default-568h@2x.png */,
 				EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */,
+				52C86E391A52E069006A68C8 /* BNRContainer.swift */,
 				EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */,
 				EBA290FB19FBDA200040A625 /* BNRImageStore.swift */,
 				52CC079019C142EC00A607B5 /* ItemsViewController.swift */,
@@ -247,6 +257,7 @@
 				521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */,
 				525F99D91A4136680071E9DC /* ImageView.swift in Sources */,
 				522F2CC11A1C2C1F0053BB2E /* HomepwnerItemCell.swift in Sources */,
+				52C86E3A1A52E069006A68C8 /* BNRContainer.swift in Sources */,
 				EB013ECD1A12E30200662EDA /* generic_functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
