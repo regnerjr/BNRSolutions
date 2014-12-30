@@ -1,135 +1,142 @@
-//
-//  ItemsViewController.swift
-//  Homepwner
-//
-//  Created by John Regner on 9/10/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 
 class ItemsViewController: UITableViewController {
 
-    convenience override init() {
-        self.init(style: UITableViewStyle.Plain)
+  convenience override init() {
+    self.init(style: UITableViewStyle.Plain)
+    configure(navigationItem)
+  }
 
-        navigationItem.title = "Homepwner"
-        //add bar button item
-        let newItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addNewItem:"))
-        navigationItem.rightBarButtonItem = newItem
-        navigationItem.leftBarButtonItem = editButtonItem()
-    }
+  func configure(navigationItem: UINavigationItem){
+    navigationItem.title = "Homepwner"
+    let newItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self,
+                                  action: Selector("addNewItem:"))
+    navigationItem.rightBarButtonItem = newItem
+    navigationItem.leftBarButtonItem = editButtonItem()
+  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      //load custom tableview cell from nib
-      let nib = UINib(nibName: "HomepwnerItemCell", bundle: nil)
-      self.tableView.registerNib(nib, forCellReuseIdentifier: "HomepwnerItemCell")
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let nib = UINib(nibName: "HomepwnerItemCell", bundle: nil)
+    self.tableView.registerNib(nib,
+                               forCellReuseIdentifier: "HomepwnerItemCell")
+  }
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
+  }
 
-    @IBAction func addNewItem(sender: AnyObject) {
+  @IBAction func addNewItem(sender: AnyObject) {
 
-        let detailController = DetailViewController(newItem: true)
-        let newItem = BNRItemStore.sharedStore.createItem()
-        detailController.item = newItem
-        detailController.dismissPopoverCompletionBlock = { self.tableView.reloadData() }
+    let detailController = DetailViewController(newItem: true)
+    let newItem = BNRItemStore.sharedStore.createItem()
+    detailController.item = newItem
+    detailController.dismissPopoverCompletionBlock = { self.tableView.reloadData() }
 
-        let navController = UINavigationController(rootViewController: detailController)
-        navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        navController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        self.presentViewController(navController, animated: true, completion: nil)
-        let popPC = navController.popoverPresentationController
-
-        popPC?.barButtonItem = self.navigationItem.rightBarButtonItem //if we were using the popover style these would be important
-        popPC?.permittedArrowDirections = UIPopoverArrowDirection.Any //but for now they are just here.
-        popPC?.delegate = self
-
-    }
+    let navController = UINavigationController(rootViewController: detailController)
+    navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+    navController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+    self.presentViewController(navController, animated: true, completion: nil)
+    let popPC = navController.popoverPresentationController
+  }
     
-    @IBAction func toggleEditingMode(sender: AnyObject) {
-        let editingButton = sender as UIButton
-        //toggle editing
-        if editing {
-            editingButton.setTitle("Edit", forState: .Normal)
-            self.setEditing(false, animated: true)
-        }
-        else {
-            editingButton.setTitle("Done", forState: .Normal)
-            self.setEditing(true, animated: true)
-        }
+  @IBAction func toggleEditingMode(sender: AnyObject) {
+    let editingButton = sender as UIButton
+    //toggle editing
+    if editing {
+      editingButton.setTitle("Edit", forState: .Normal)
+      self.setEditing(false, animated: true)
     }
+    else {
+      editingButton.setTitle("Done", forState: .Normal)
+      self.setEditing(true, animated: true)
+    }
+  }
 }
 
 extension ItemsViewController: UITableViewDataSource {
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return BNRItemStore.sharedStore.getAllItems().count
+  }
+
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+    let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
+    let cell = tableView.dequeueReusableCellWithIdentifier(
+                            "HomepwnerItemCell") as HomepwnerItemCell
+    cell.nameLabel.text = p.itemName
+    cell.serialNumberLabel.text = p.serialNumber
+    cell.valueLabel.text = "$\(p.valueInDollars)"
+    
+    func setValueLabelColor(var cell: HomepwnerItemCell, value: Int) -> HomepwnerItemCell {
+      if value > 50{
+        cell.valueLabel.textColor = UIColor.greenColor()
+      } else {
+        cell.valueLabel.textColor = UIColor.redColor()
+      }
+      return cell
     }
+    
+    setValueLabelColor(cell, p.valueInDollars)
+    cell.thumbnailView.image = p.thumbnail
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BNRItemStore.sharedStore.getAllItems().count
+    cell.controller = self
+    cell.tableView = tableView
+
+    return cell
+  }
+
+  //MARK: - Editing
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    // If the table view is asking to commit a delete command...
+    if editingStyle == .Delete {
+      let items = BNRItemStore.sharedStore.getAllItems()
+      let p = items[indexPath.row]
+      BNRItemStore.sharedStore.removeItem(p)
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
+  }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+    BNRItemStore.sharedStore.moveItem(sourceIndexPath.row, toIndex: destinationIndexPath.row)
+  }
 
-        let p = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(
-                                "HomepwnerItemCell") as HomepwnerItemCell
-        cell.nameLabel.text = p.itemName
-        cell.serialNumberLabel.text = p.serialNumber
-        cell.valueLabel.text = "$\(p.valueInDollars)"
-        cell.thumbnailView.image = p.thumbnail
-
-        cell.controller = self
-        cell.tableView = tableView
-
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // If the table view is asking to commit a delete command...
-        if editingStyle == .Delete {
-            let items = BNRItemStore.sharedStore.getAllItems()
-            let p = items[indexPath.row]
-            BNRItemStore.sharedStore.removeItem(p)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-    }
-
-    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        BNRItemStore.sharedStore.moveItem(sourceIndexPath.row, toIndex: destinationIndexPath.row)
-    }
 }
 
 extension ItemsViewController: UITableViewDelegate {
 
-    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-        return "Remove"
-    }
+  override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+    return "Remove"
+  }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = DetailViewController(newItem: false)
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let detailViewController = DetailViewController(newItem: false)
 
-        let selectedItem = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
-        detailViewController.item = selectedItem
-        navigationController?.pushViewController(detailViewController, animated: true)
-    }
-}
-
-extension ItemsViewController: UIPopoverPresentationControllerDelegate {
-
+    let selectedItem = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
+    detailViewController.item = selectedItem
+    navigationController?.pushViewController(detailViewController, animated: true)
+  }
 }
 
 extension UITableViewController {
 
   func showImage(sender:AnyObject, atIndexPath indexPath:NSIndexPath){
-      println("Goint to show the image for ip: \(indexPath)")
+    //build up a little popover controller and display it. 
+    let storyboard = UIStoryboard(name: "imageView", bundle: nil)
+    let imageView = storyboard.instantiateInitialViewController() as ImageView
+    let item = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
+    let imageKey = item.imageKey
+    if imageKey != nil {
+      let imageFromStore = BNRImageStore.sharedStore.imageForKey(imageKey!)
+      imageView.imageProperty = imageFromStore
+      self.presentViewController(imageView, animated: true, completion: nil)
+    }
   }
-
 
 }

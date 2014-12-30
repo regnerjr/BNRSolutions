@@ -62,5 +62,4 @@ class BNRImageStore: NSObject {
     imageDictionary.removeAll(keepCapacity: false)
   }
 
-
-}//end class
+}

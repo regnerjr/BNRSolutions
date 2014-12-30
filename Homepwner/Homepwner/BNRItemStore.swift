@@ -1,11 +1,3 @@
-//
-//  BNRItemStore.swift
-//  Homepwner
-//
-//  Created by John on 9/14/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 
 private let _BNRItemStoreSharedStore = BNRItemStore()

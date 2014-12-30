@@ -1,11 +1,3 @@
-//
-//  BNRItem.swift
-//  RandomPossessions
-//
-//  Created by John Regner on 7/28/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 
 class BNRItem : NSObject, NSCoding{
@@ -21,11 +13,9 @@ class BNRItem : NSObject, NSCoding{
     }
   }
 
-  override var description: String{
-  get{
-    return "\(itemName) (\(serialNumber)): Worth $\(valueInDollars), recorded on \(dateCreated)"
-  }
-  }
+  override var description: String {
+     return "\(itemName) (\(serialNumber)): Worth $\(valueInDollars), recorded on \(dateCreated)"
+   }
 
   init(WithItemName name: String, valueInDollars: Int, serialNumber: String ){
     self.itemName = name
@@ -91,15 +81,14 @@ class BNRItem : NSObject, NSCoding{
     UIGraphicsEndImageContext()
   }
 
-
   //NSCoding
   required init(coder aDecoder: NSCoder) {
     self.itemName = aDecoder.decodeObjectForKey("itemName") as String
     self.serialNumber = aDecoder.decodeObjectForKey("serialNumber") as String
     self.dateCreated = aDecoder.decodeObjectForKey("dateCreated") as NSDate
     self.imageKey = aDecoder.decodeObjectForKey("imageKey") as? String
-    self.valueInDollars = Int(aDecoder.decodeIntForKey("valueInDollars"))
-    self.thumbnailData = aDecoder.decodeObjectForKey("thumbnailData") as? NSData
+    self.valueInDollars = aDecoder.decodeIntegerForKey("valueInDollars")
+    self.thumbnailData = aDecoder.decodeObjectOfClass(NSData.classForCoder(), forKey: "thumbnailData") as? NSData
     super.init()
   }
 
@@ -112,11 +101,6 @@ class BNRItem : NSObject, NSCoding{
     aCoder.encodeObject(thumbnailData, forKey: "thumbnailData")
   }
 
-}
-
-func randomNumberLessThan(maxNumber: Int) -> Int {
-  //this hack is here because without it this crashes on 32 bit architecture. 😢
-  return Int(arc4random() & 0x7FFF_FFFF ) % maxNumber //mask off top bit
 }
 
 class BNRContainer : BNRItem {

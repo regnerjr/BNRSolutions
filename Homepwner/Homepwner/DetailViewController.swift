@@ -1,11 +1,3 @@
-//
-//  DetailViewController.swift
-//  Homepwner
-//
-//  Created by John Regner on 10/5/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController, UINavigationControllerDelegate {
@@ -42,11 +34,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.groupTableViewBackgroundColor()
-    }
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         nameField.text = item.itemName
@@ -69,6 +56,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         item.itemName = nameField.text
         item.serialNumber = serialField.text
         item.valueInDollars = valueField.text.toInt() ?? 0 //default to 0 dollars if the price is messed up
+      if let image = imageView.image {
+        item.setThumbnailDataFromImage(image)
+      }
     }
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
