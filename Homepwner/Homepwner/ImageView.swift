@@ -22,3 +22,10 @@ class ImageView: UIViewController {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
 }
+
+extension ImageView: UIScrollViewDelegate {
+  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    println("Calling view for Zooming In Scroll View")
+    return theImage
+  }
+}

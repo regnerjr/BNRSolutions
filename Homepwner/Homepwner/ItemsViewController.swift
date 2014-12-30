@@ -73,7 +73,7 @@ extension ItemsViewController: UITableViewDataSource {
     cell.nameLabel.text = p.itemName
     cell.serialNumberLabel.text = p.serialNumber
     cell.valueLabel.text = "$\(p.valueInDollars)"
-    
+    cell.actionHandlerBlock = { self.showImage(atIndexPath: indexPath) }
     func setValueLabelColor(var cell: HomepwnerItemCell, value: Int) -> HomepwnerItemCell {
       if value > 50{
         cell.valueLabel.textColor = UIColor.greenColor()
@@ -126,7 +126,7 @@ extension ItemsViewController: UITableViewDelegate {
 
 extension UITableViewController {
 
-  func showImage(sender:AnyObject, atIndexPath indexPath:NSIndexPath){
+  func showImage(atIndexPath indexPath:NSIndexPath){
     //build up a little popover controller and display it. 
     let storyboard = UIStoryboard(name: "imageView", bundle: nil)
     let imageView = storyboard.instantiateInitialViewController() as ImageView

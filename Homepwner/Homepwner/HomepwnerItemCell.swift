@@ -1,6 +1,6 @@
 import UIKit
 
-class HomepwnerItemCell: UITableViewCell {
+class HomepwnerItemCell: CellWithActionTableViewCell {
 
   @IBOutlet weak var thumbnailView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
@@ -11,10 +11,7 @@ class HomepwnerItemCell: UITableViewCell {
   weak var tableView: UITableView?
   
   @IBAction func showImage(sender: AnyObject) {
-    if let indexpath = tableView?.indexPathForCell(self){
-      controller?.showImage(sender, atIndexPath:indexpath)
-      //needs to have this method defined in a custom extenstion of UITableViewController
-    }
+    self.actionHandlerBlock()
   }
 
 }
