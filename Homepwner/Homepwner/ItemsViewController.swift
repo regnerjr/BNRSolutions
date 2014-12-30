@@ -74,6 +74,7 @@ extension ItemsViewController: UITableViewDataSource {
     cell.serialNumberLabel.text = p.serialNumber
     cell.valueLabel.text = "$\(p.valueInDollars)"
     cell.actionHandlerBlock = { self.showImage(atIndexPath: indexPath) }
+    
     func setValueLabelColor(var cell: HomepwnerItemCell, value: Int) -> HomepwnerItemCell {
       if value > 50{
         cell.valueLabel.textColor = UIColor.greenColor()
@@ -85,9 +86,6 @@ extension ItemsViewController: UITableViewDataSource {
     
     setValueLabelColor(cell, p.valueInDollars)
     cell.thumbnailView.image = p.thumbnail
-
-    cell.controller = self
-    cell.tableView = tableView
 
     return cell
   }
