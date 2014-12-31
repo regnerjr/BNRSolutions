@@ -1,4 +1,5 @@
 import UIKit
+import JROperators
 
 private let _BNRItemStoreSharedStore = BNRItemStore()
 

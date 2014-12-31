@@ -1,4 +1,5 @@
 import UIKit
+import JROperators
 
 class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -49,8 +50,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         formatter.timeStyle = NSDateFormatterStyle.NoStyle
         dateLabel.text = formatter.stringFromDate(item.dateCreated)
 
-        imageView.image = (item.imageKey != nil) ?
-            BNRImageStore.sharedStore.imageForKey(item.imageKey!)! : nil
+        imageView.image = item.imageKey >>=- BNRImageStore.sharedStore.imageForKey
     }
 
     override func viewWillDisappear(animated: Bool) {

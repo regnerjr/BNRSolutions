@@ -1,9 +1,18 @@
 import UIKit
-
+import JROperators
 
 func randomNumberLessThan(maxNumber: Int) -> Int {
   //this hack is here because without it this crashes on 32 bit architecture. 😢
   return Int(arc4random() & 0x7FFF_FFFF ) % maxNumber //mask off top bit
+}
+
+func imageFromData(a: NSData?) -> UIImage? {
+  //can't use bind here because I can not figure out how to get a reference to 
+  //the initializer method, would love for this to be a >>=- UIImage.initWithData
+  switch a {
+  case .Some(let data): return UIImage(data: data)
+  case .None: return nil
+  }
 }
 
 class BNRItem : NSObject, NSCoding{
@@ -15,7 +24,7 @@ class BNRItem : NSObject, NSCoding{
   var thumbnail: UIImage?
   var thumbnailData: NSData?{
     willSet{
-      thumbnail = (newValue != nil) ? UIImage(data: newValue!) : nil
+      thumbnail = imageFromData(newValue)
     }
   }
 
