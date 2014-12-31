@@ -9,14 +9,16 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraBarButtonItem: UIBarButtonItem!
 
+  
     var dismissPopoverCompletionBlock: (()-> Void)?
-    
     var item: BNRItem! {  //will be loaded when this view is pushed onto the view controller
         didSet{
             navigationItem.title = self.item.itemName
             }
     }
 
+  //MARK: - Initializers
+  
     init(newItem:Bool){
         super.init(nibName: "DetailViewController", bundle: nil)
         if newItem {
@@ -34,6 +36,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+  //MARK: - View Lifecycle
+  
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         nameField.text = item.itemName
@@ -52,13 +56,13 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(true)
-
+      
+      //save any changes made by the user
         item.itemName = nameField.text
         item.serialNumber = serialField.text
         item.valueInDollars = valueField.text.toInt() ?? 0 //default to 0 dollars if the price is messed up
-      if let image = imageView.image {
-        item.setThumbnailDataFromImage(image)
-      }
+        item.thumbnail = item.setThumbnailFromImage(imageView.image)
+        item.thumbnailData = UIImagePNGRepresentation(item.thumbnail)
     }
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
@@ -90,6 +94,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         self.save(sender)
     }
 }
+
+
 
 extension DetailViewController : UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {

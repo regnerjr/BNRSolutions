@@ -43,14 +43,14 @@ class BNRItemStore: NSObject {
     return false
   }
 
-  func createItem() -> BNRItem{
+  func createItem() -> BNRItem {
     //let p = BNRItem.randomItem()
     let p = BNRItem()
     allItems.append(p)
     return p
   }
 
-  func getAllItems() -> [BNRItem]{
+  func getAllItems() -> [BNRItem] {
     return allItems
   }
 

@@ -3,14 +3,11 @@ import UIKit
 class ImageView: UIViewController {
 
   @IBOutlet weak var theImage: UIImageView!
-
   var imageProperty: UIImage?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    if imageProperty != nil{
-      theImage.image = imageProperty
-    }
+    theImage.image = imageProperty
   }
 
   override func didReceiveMemoryWarning() {
@@ -18,14 +15,13 @@ class ImageView: UIViewController {
   }
     
   @IBAction func doneLookingAtThisPicture(sender: AnyObject) {
-    println("Done button pressed")
     self.dismissViewControllerAnimated(true, completion: nil)
   }
 }
 
+//allow the image view to be scrolled and zoomed
 extension ImageView: UIScrollViewDelegate {
   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-    println("Calling view for Zooming In Scroll View")
     return theImage
   }
 }

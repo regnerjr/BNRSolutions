@@ -60,44 +60,42 @@ class BNRItem : NSObject, NSCoding{
                     serialNumber: randomSerialNumber)
   }
 
-  func setThumbnailDataFromImage(image: UIImage){
+  func setThumbnailFromImage(image: UIImage?) -> UIImage?{
+    if let image = image { //don't do any setting here if image is nil
+      let newRect = CGRect(x: 0, y: 0, width: 40, height: 40)
+      UIGraphicsBeginImageContextWithOptions(newRect.size, false, 0.0)
+      let path = UIBezierPath(roundedRect: newRect, cornerRadius: 5.0)
+      path.addClip()
 
-    let newRect = CGRect(x: 0, y: 0, width: 40, height: 40)
-    UIGraphicsBeginImageContextWithOptions(newRect.size, false, 0.0)
-    let path = UIBezierPath(roundedRect: newRect, cornerRadius: 5.0)
-    path.addClip()
+      let originalImageSize = image.size
+      let ratio = max(newRect.size.width / originalImageSize.width,
+        newRect.size.height / originalImageSize.height)
 
-    let originalImageSize = image.size
-    let ratio = max(newRect.size.width / originalImageSize.width,
-      newRect.size.height / originalImageSize.height)
+      var projectRect = CGRect()
+      projectRect.size.width = ratio * originalImageSize.width
+      projectRect.size.height = ratio * originalImageSize.height
+      projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0
+      projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0
+      image.drawInRect(projectRect)
 
-    var projectRect = CGRect()
-    projectRect.size.width = ratio * originalImageSize.width
-    projectRect.size.height = ratio * originalImageSize.height
-    projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0
-    projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0
-    image.drawInRect(projectRect)
-
-    if let smallImage = UIGraphicsGetImageFromCurrentImageContext() {
-      self.thumbnail = smallImage
-
-      let data = UIImagePNGRepresentation(smallImage)
-      self.thumbnailData = data
-    }
-    UIGraphicsEndImageContext()
+      let smallImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+      return smallImage
+      }
+    return nil // if no image passed in return nil
   }
 
-  // MARK - NSCoding
+  // MARK: - NSCoding
   required init(coder aDecoder: NSCoder) {
     self.itemName = aDecoder.decodeObjectForKey("itemName") as String
     self.serialNumber = aDecoder.decodeObjectForKey("serialNumber") as String
     self.dateCreated = aDecoder.decodeObjectForKey("dateCreated") as NSDate
     self.imageKey = aDecoder.decodeObjectForKey("imageKey") as? String
     self.valueInDollars = aDecoder.decodeIntegerForKey("valueInDollars")
-    self.thumbnailData = aDecoder.decodeObjectOfClass(NSData.classForCoder(), forKey: "thumbnailData") as? NSData
+    self.thumbnailData = aDecoder.decodeObjectOfClass(NSData.classForCoder(),
+      forKey: "thumbnailData") as? NSData
     super.init()
   }
-
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(itemName, forKey: "itemName")
     aCoder.encodeObject(serialNumber, forKey: "serialNumber")
