@@ -1,12 +1,14 @@
 import UIKit
 
 class BNRContainer : BNRItem {
+
   //properly written can contain instances of BNRContainer
-  var subItems = [BNRItem]()
-  var collectionValue: Int {
-    var sum: Int = 0
+  var subItems = [BNRItem]() //since BNRItem is a superclass of BNRContainer this will be able to contain containers.
+  //computed property which recuriively finds the value of a container.
+  var collectionValue: Int32 {
+    var sum: Int32 = 0
     for item in subItems {
-      if let container = item as? BNRContainer {
+      if let container = item as? BNRContainer { //yeah downcast!
         sum += container.collectionValue
         sum += container.valueInDollars
       }
@@ -16,11 +18,7 @@ class BNRContainer : BNRItem {
     }
     return sum
   }
-  
-  convenience init(WithContainerName name: String){
-    self.init(WithItemName: name, valueInDollars: 0, serialNumber: "")
-  }
-  
+    
   func addItem(item:BNRItem) -> (){
     subItems.append(item)
   }

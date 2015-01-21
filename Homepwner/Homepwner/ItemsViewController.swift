@@ -75,7 +75,7 @@ extension ItemsViewController: UITableViewDataSource {
     cell.valueLabel.text = "$\(p.valueInDollars)"
     cell.actionHandlerBlock = { self.showImage(atIndexPath: indexPath) }
     
-    func setValueLabelColor(var cell: HomepwnerItemCell, value: Int) -> HomepwnerItemCell {
+    func setValueLabelColor(var cell: HomepwnerItemCell, value: Int32) -> HomepwnerItemCell {
       if value > 50{
         cell.valueLabel.textColor = UIColor.greenColor()
       } else {
@@ -101,8 +101,12 @@ extension ItemsViewController: UITableViewDataSource {
     }
   }
 
-  override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-    BNRItemStore.sharedStore.moveItem(sourceIndexPath.row, toIndex: destinationIndexPath.row)
+  override func tableView(tableView: UITableView,
+                  moveRowAtIndexPath sourceIndexPath: NSIndexPath,
+                  toIndexPath destinationIndexPath: NSIndexPath) {
+
+    let itemToMove = BNRItemStore.sharedStore.getAllItems()[sourceIndexPath.row]
+    BNRItemStore.sharedStore.moveItem( itemToMove, From: sourceIndexPath.row, toIndex: destinationIndexPath.row)
   }
 
 }
@@ -129,9 +133,8 @@ extension UITableViewController {
     let storyboard = UIStoryboard(name: "imageView", bundle: nil)
     let imageView = storyboard.instantiateInitialViewController() as ImageView
     let item = BNRItemStore.sharedStore.getAllItems()[indexPath.row]
-    let imageKey = item.imageKey
-    if imageKey != nil {
-      let imageFromStore = BNRImageStore.sharedStore.imageForKey(imageKey!)
+    if item.imageKey != nil {
+      let imageFromStore = BNRImageStore.sharedStore.imageForKey(item.imageKey!)
       imageView.imageProperty = imageFromStore
       self.presentViewController(imageView, animated: true, completion: nil)
     }

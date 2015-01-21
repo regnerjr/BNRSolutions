@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5201D5461A5865AD008C95CB /* JROperators.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C86E461A544394006A68C8 /* JROperators.framework */; };
+		5201D5471A5865AD008C95CB /* JROperators.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52C86E461A544394006A68C8 /* JROperators.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5201D54B1A5866E6008C95CB /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E6D1A547723006A68C8 /* BNRItem.swift */; };
 		521130AD19E1E5FB006B64C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521130AC19E1E5FB006B64C2 /* DetailViewController.swift */; };
 		521130AF19E1E660006B64C2 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521130AE19E1E660006B64C2 /* DetailViewController.xib */; };
 		521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB91119BFF0810007B687 /* AppDelegate.swift */; };
@@ -14,26 +17,32 @@
 		521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EB92719BFF0810007B687 /* HomepwnerTests.swift */; };
 		522F2CC11A1C2C1F0053BB2E /* HomepwnerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F2CC01A1C2C1F0053BB2E /* HomepwnerItemCell.swift */; };
 		522F2CC31A1C2C510053BB2E /* HomepwnerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F2CC21A1C2C510053BB2E /* HomepwnerItemCell.xib */; };
+		523D97241A58DC4100753626 /* AssetTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D97231A58DC4100753626 /* AssetTypePicker.swift */; };
 		525F99D71A4135B50071E9DC /* imageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525F99D61A4135B50071E9DC /* imageView.storyboard */; };
 		525F99D91A4136680071E9DC /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F99D81A4136680071E9DC /* ImageView.swift */; };
-		52B3121D1A520FFD00184C0D /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */; };
 		52C86E381A522313006A68C8 /* generic_functions_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E371A522313006A68C8 /* generic_functions_tests.swift */; };
 		52C86E3A1A52E069006A68C8 /* BNRContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E391A52E069006A68C8 /* BNRContainer.swift */; };
 		52C86E3C1A52E113006A68C8 /* CellWithActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E3B1A52E113006A68C8 /* CellWithActionTableViewCell.swift */; };
 		52C86E4B1A544394006A68C8 /* JROperators.h in Headers */ = {isa = PBXBuildFile; fileRef = 52C86E4A1A544394006A68C8 /* JROperators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52C86E511A544395006A68C8 /* JROperators.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C86E461A544394006A68C8 /* JROperators.framework */; };
 		52C86E5A1A544395006A68C8 /* JROperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E591A544395006A68C8 /* JROperatorsTests.swift */; };
-		52C86E5D1A544395006A68C8 /* JROperators.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C86E461A544394006A68C8 /* JROperators.framework */; };
-		52C86E5E1A544395006A68C8 /* JROperators.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52C86E461A544394006A68C8 /* JROperators.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52C86E671A54475A006A68C8 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E661A54475A006A68C8 /* CustomOperators.swift */; };
+		52C86E6C1A546DB5006A68C8 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E6A1A546DB5006A68C8 /* Homepwner.xcdatamodeld */; };
+		52C86E6E1A547723006A68C8 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E6D1A547723006A68C8 /* BNRItem.swift */; };
 		52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC079019C142EC00A607B5 /* ItemsViewController.swift */; };
 		52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CF423219C62E2500E0753D /* Default-568h@2x.png */; };
 		EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA290FB19FBDA200040A625 /* BNRImageStore.swift */; };
-		EBFAF8F919C64AAF00CDFC37 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */; };
 		EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5201D5481A5865AD008C95CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 521EB90419BFF0810007B687 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52C86E451A544394006A68C8;
+			remoteInfo = JROperators;
+		};
 		521EB92219BFF0810007B687 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 521EB90419BFF0810007B687 /* Project object */;
@@ -55,23 +64,16 @@
 			remoteGlobalIDString = 521EB90B19BFF0810007B687;
 			remoteInfo = Homepwner;
 		};
-		52C86E5B1A544395006A68C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 521EB90419BFF0810007B687 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52C86E451A544394006A68C8;
-			remoteInfo = JROperators;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		52C86E621A544395006A68C8 /* Embed Frameworks */ = {
+		5201D54A1A5865AD008C95CB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				52C86E5E1A544395006A68C8 /* JROperators.framework in Embed Frameworks */,
+				5201D5471A5865AD008C95CB /* JROperators.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +92,7 @@
 		521EB92719BFF0810007B687 /* HomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerTests.swift; sourceTree = "<group>"; };
 		522F2CC01A1C2C1F0053BB2E /* HomepwnerItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepwnerItemCell.swift; sourceTree = "<group>"; };
 		522F2CC21A1C2C510053BB2E /* HomepwnerItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomepwnerItemCell.xib; sourceTree = "<group>"; };
+		523D97231A58DC4100753626 /* AssetTypePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTypePicker.swift; sourceTree = "<group>"; };
 		525F99D61A4135B50071E9DC /* imageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = imageView.storyboard; sourceTree = "<group>"; };
 		525F99D81A4136680071E9DC /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		52C86E371A522313006A68C8 /* generic_functions_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generic_functions_tests.swift; sourceTree = "<group>"; };
@@ -102,10 +105,11 @@
 		52C86E581A544395006A68C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52C86E591A544395006A68C8 /* JROperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JROperatorsTests.swift; sourceTree = "<group>"; };
 		52C86E661A54475A006A68C8 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
+		52C86E6B1A546DB5006A68C8 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		52C86E6D1A547723006A68C8 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
 		52CC079019C142EC00A607B5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		52CF423219C62E2500E0753D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EBA290FB19FBDA200040A625 /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
-		EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
 		EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C86E5D1A544395006A68C8 /* JROperators.framework in Frameworks */,
+				5201D5461A5865AD008C95CB /* JROperators.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,18 +172,20 @@
 		521EB90E19BFF0810007B687 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
-				522F2CC01A1C2C1F0053BB2E /* HomepwnerItemCell.swift */,
+				52C86E6A1A546DB5006A68C8 /* Homepwner.xcdatamodeld */,
+				523D97231A58DC4100753626 /* AssetTypePicker.swift */,
+				52C86E6D1A547723006A68C8 /* BNRItem.swift */,
+				52C86E391A52E069006A68C8 /* BNRContainer.swift */,
+				EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */,
+				EBA290FB19FBDA200040A625 /* BNRImageStore.swift */,
 				52C86E3B1A52E113006A68C8 /* CellWithActionTableViewCell.swift */,
 				522F2CC21A1C2C510053BB2E /* HomepwnerItemCell.xib */,
+				522F2CC01A1C2C1F0053BB2E /* HomepwnerItemCell.swift */,
 				521130AE19E1E660006B64C2 /* DetailViewController.xib */,
 				521130AC19E1E5FB006B64C2 /* DetailViewController.swift */,
 				525F99D61A4135B50071E9DC /* imageView.storyboard */,
 				525F99D81A4136680071E9DC /* ImageView.swift */,
 				52CF423219C62E2500E0753D /* Default-568h@2x.png */,
-				EBFAF8F819C64AAF00CDFC37 /* BNRItem.swift */,
-				52C86E391A52E069006A68C8 /* BNRContainer.swift */,
-				EBFAF8FA19C64F8200CDFC37 /* BNRItemStore.swift */,
-				EBA290FB19FBDA200040A625 /* BNRImageStore.swift */,
 				52CC079019C142EC00A607B5 /* ItemsViewController.swift */,
 				521EB91119BFF0810007B687 /* AppDelegate.swift */,
 				521EB91819BFF0810007B687 /* Images.xcassets */,
@@ -270,12 +276,12 @@
 				521EB90819BFF0810007B687 /* Sources */,
 				521EB90919BFF0810007B687 /* Frameworks */,
 				521EB90A19BFF0810007B687 /* Resources */,
-				52C86E621A544395006A68C8 /* Embed Frameworks */,
+				5201D54A1A5865AD008C95CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				52C86E5C1A544395006A68C8 /* PBXTargetDependency */,
+				5201D5491A5865AD008C95CB /* PBXTargetDependency */,
 			);
 			name = Homepwner;
 			productName = Homepwner;
@@ -426,13 +432,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBFAF8F919C64AAF00CDFC37 /* BNRItem.swift in Sources */,
 				52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */,
+				52C86E6E1A547723006A68C8 /* BNRItem.swift in Sources */,
 				52C86E3C1A52E113006A68C8 /* CellWithActionTableViewCell.swift in Sources */,
 				521130AD19E1E5FB006B64C2 /* DetailViewController.swift in Sources */,
 				EBFAF8FB19C64F8200CDFC37 /* BNRItemStore.swift in Sources */,
+				52C86E6C1A546DB5006A68C8 /* Homepwner.xcdatamodeld in Sources */,
 				EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */,
 				521EB91219BFF0810007B687 /* AppDelegate.swift in Sources */,
+				523D97241A58DC4100753626 /* AssetTypePicker.swift in Sources */,
 				525F99D91A4136680071E9DC /* ImageView.swift in Sources */,
 				522F2CC11A1C2C1F0053BB2E /* HomepwnerItemCell.swift in Sources */,
 				52C86E3A1A52E069006A68C8 /* BNRContainer.swift in Sources */,
@@ -444,8 +452,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				521EB92819BFF0810007B687 /* HomepwnerTests.swift in Sources */,
+				5201D54B1A5866E6008C95CB /* BNRItem.swift in Sources */,
 				52C86E381A522313006A68C8 /* generic_functions_tests.swift in Sources */,
-				52B3121D1A520FFD00184C0D /* BNRItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +476,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5201D5491A5865AD008C95CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52C86E451A544394006A68C8 /* JROperators */;
+			targetProxy = 5201D5481A5865AD008C95CB /* PBXContainerItemProxy */;
+		};
 		521EB92319BFF0810007B687 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 521EB90B19BFF0810007B687 /* Homepwner */;
@@ -482,11 +495,6 @@
 			isa = PBXTargetDependency;
 			target = 521EB90B19BFF0810007B687 /* Homepwner */;
 			targetProxy = 52C86E541A544395006A68C8 /* PBXContainerItemProxy */;
-		};
-		52C86E5C1A544395006A68C8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 52C86E451A544394006A68C8 /* JROperators */;
-			targetProxy = 52C86E5B1A544395006A68C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -575,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,6 +595,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -739,6 +749,7 @@
 				52C86E611A544395006A68C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52C86E631A544395006A68C8 /* Build configuration list for PBXNativeTarget "JROperatorsTests" */ = {
 			isa = XCConfigurationList;
@@ -747,8 +758,22 @@
 				52C86E651A544395006A68C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52C86E6A1A546DB5006A68C8 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52C86E6B1A546DB5006A68C8 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 52C86E6B1A546DB5006A68C8 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 521EB90419BFF0810007B687 /* Project object */;
 }
