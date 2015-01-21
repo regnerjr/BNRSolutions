@@ -69,7 +69,11 @@ class BNRItemStore: NSObject {
     }
     
     if allAssetTypes?.count == 0 {
-      let newTypes: [NSManagedObject] = ["Furniture", "Jewelry", "Electronics"].map ({
+        let defaultType1 = NSLocalizedString("Furniture", comment: "A category for your household furniture")
+        let defaultType2 = NSLocalizedString("Jewelry", comment: "A category for shiny, expensive things")
+        let defaultType3 = NSLocalizedString("Electronics", comment: "A category for your belongings which plug in")
+        
+      let newTypes: [NSManagedObject] = [defaultType1, defaultType2, defaultType3 ].map ({
         let type = NSEntityDescription.insertNewObjectForEntityForName("BNRAssetType", inManagedObjectContext: self.context) as NSManagedObject
           type.setValue($0, forKey: "label")
         return type

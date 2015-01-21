@@ -1,0 +1,6 @@
+/* A category for your belongings which plug in */
+"Electronics" = "Elec-Spain";
+
+/* A category for your household furniture */
+"Furniture" = "Furni-Spain";
+

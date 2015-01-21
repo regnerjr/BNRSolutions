@@ -72,7 +72,8 @@ extension ItemsViewController: UITableViewDataSource {
                             "HomepwnerItemCell") as HomepwnerItemCell
     cell.nameLabel.text = p.itemName
     cell.serialNumberLabel.text = p.serialNumber
-    cell.valueLabel.text = "$\(p.valueInDollars)"
+    let currencySymbol = NSLocale.currentLocale().objectForKey(NSLocaleCurrencySymbol) as String!
+    cell.valueLabel.text = "\(currencySymbol)\(p.valueInDollars)"
     cell.actionHandlerBlock = { self.showImage(atIndexPath: indexPath) }
     
     func setValueLabelColor(var cell: HomepwnerItemCell, value: Int32) -> HomepwnerItemCell {

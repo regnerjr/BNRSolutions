@@ -29,6 +29,11 @@
 		52C86E671A54475A006A68C8 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E661A54475A006A68C8 /* CustomOperators.swift */; };
 		52C86E6C1A546DB5006A68C8 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E6A1A546DB5006A68C8 /* Homepwner.xcdatamodeld */; };
 		52C86E6E1A547723006A68C8 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C86E6D1A547723006A68C8 /* BNRItem.swift */; };
+		52CB83331A702B73007D8A4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CB83351A702B73007D8A4B /* InfoPlist.strings */; };
+		52CB83381A702B73007D8A4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CB833A1A702B73007D8A4B /* Localizable.strings */; };
+		52CB833D1A702B73007D8A4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CB833F1A702B73007D8A4B /* InfoPlist.strings */; };
+		52CB83421A702B73007D8A4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CB83441A702B73007D8A4B /* InfoPlist.strings */; };
+		52CB83471A702B73007D8A4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CB83491A702B73007D8A4B /* InfoPlist.strings */; };
 		52CC079119C142EC00A607B5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC079019C142EC00A607B5 /* ItemsViewController.swift */; };
 		52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CF423219C62E2500E0753D /* Default-568h@2x.png */; };
 		EBA290FC19FBDA200040A625 /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA290FB19FBDA200040A625 /* BNRImageStore.swift */; };
@@ -107,6 +112,11 @@
 		52C86E661A54475A006A68C8 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		52C86E6B1A546DB5006A68C8 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		52C86E6D1A547723006A68C8 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
+		52CB83341A702B73007D8A4B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52CB83391A702B73007D8A4B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52CB833E1A702B73007D8A4B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52CB83431A702B73007D8A4B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52CB83481A702B73007D8A4B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52CC079019C142EC00A607B5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		52CF423219C62E2500E0753D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EBA290FB19FBDA200040A625 /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
@@ -197,6 +207,8 @@
 		521EB90F19BFF0810007B687 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52CB833F1A702B73007D8A4B /* InfoPlist.strings */,
+				52CB833A1A702B73007D8A4B /* Localizable.strings */,
 				521EB91019BFF0810007B687 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -215,6 +227,7 @@
 		521EB92519BFF0810007B687 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52CB83441A702B73007D8A4B /* InfoPlist.strings */,
 				521EB92619BFF0810007B687 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -233,6 +246,7 @@
 		52C86E481A544394006A68C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52CB83491A702B73007D8A4B /* InfoPlist.strings */,
 				52C86E491A544394006A68C8 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -250,6 +264,7 @@
 		52C86E571A544395006A68C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52CB83351A702B73007D8A4B /* InfoPlist.strings */,
 				52C86E581A544395006A68C8 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -397,6 +412,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				521EB91919BFF0810007B687 /* Images.xcassets in Resources */,
+				52CB833D1A702B73007D8A4B /* InfoPlist.strings in Resources */,
+				52CB83381A702B73007D8A4B /* Localizable.strings in Resources */,
 				525F99D71A4135B50071E9DC /* imageView.storyboard in Resources */,
 				52CF423319C62E2500E0753D /* Default-568h@2x.png in Resources */,
 				522F2CC31A1C2C510053BB2E /* HomepwnerItemCell.xib in Resources */,
@@ -408,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB83421A702B73007D8A4B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB83471A702B73007D8A4B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB83331A702B73007D8A4B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +517,49 @@
 			targetProxy = 52C86E541A544395006A68C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52CB83351A702B73007D8A4B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB83341A702B73007D8A4B /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52CB833A1A702B73007D8A4B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB83391A702B73007D8A4B /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		52CB833F1A702B73007D8A4B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB833E1A702B73007D8A4B /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52CB83441A702B73007D8A4B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB83431A702B73007D8A4B /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52CB83491A702B73007D8A4B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB83481A702B73007D8A4B /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		521EB92919BFF0810007B687 /* Debug */ = {
