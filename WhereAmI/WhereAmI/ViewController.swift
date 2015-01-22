@@ -2,12 +2,22 @@ import UIKit
 import CoreLocation
 import MapKit
 
+let WhereamiMapTypePrefKey = "WhereamiMapTypePrefKey"
+
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
+
+
+    override class func initialize(){
+        let defaults = [ WhereamiMapTypePrefKey : NSNumber(char: 1) ]
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaults)
+    }
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var segmented: UISegmentedControl!
+
+
 
     lazy var locationManager = CLLocationManager()
 
@@ -23,11 +33,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         map.showsUserLocation = true
         map.mapType = .Satellite
 
-        segmented.selectedSegmentIndex = 1
+        let mapTypeValue = NSUserDefaults.standardUserDefaults().integerForKey(WhereamiMapTypePrefKey)
+        segmented.selectedSegmentIndex = mapTypeValue
+        changeMapType(mapTypeValue)
     }
 
     @IBAction func setMapType(sender: UISegmentedControl) {
+
         let index: Int = sender.selectedSegmentIndex
+        NSUserDefaults.standardUserDefaults().setInteger(index, forKey: WhereamiMapTypePrefKey)
+        changeMapType(index)
+    }
+
+    func changeMapType(index: Int){
         switch index {
         case 0:
             map.mapType = .Standard
