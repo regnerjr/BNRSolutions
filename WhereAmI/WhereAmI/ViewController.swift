@@ -40,7 +40,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     @IBAction func setMapType(sender: UISegmentedControl) {
 
-        let index: Int = sender.selectedSegmentIndex
+        let index = sender.selectedSegmentIndex
         NSUserDefaults.standardUserDefaults().setInteger(index, forKey: WhereamiMapTypePrefKey)
         changeMapType(index)
     }
