@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  WhereAmI
-//
-//  Created by John Regner on 8/13/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 import MapKit
@@ -17,10 +9,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var segmented: UISegmentedControl!
 
-    let locationManager = CLLocationManager()
+    lazy var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         //Configure Location Manager
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -33,7 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         segmented.selectedSegmentIndex = 1
     }
 
-    @IBAction func setMapType(sender: AnyObject) {
+    @IBAction func setMapType(sender: UISegmentedControl) {
         let index: Int = sender.selectedSegmentIndex
         switch index {
         case 0:
