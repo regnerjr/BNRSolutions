@@ -35,9 +35,11 @@ class TouchDrawView: UIView {
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        println("Touches Began with \(touches.count) touches")
+
+
         for t in touches {
             let t = t as UITouch //touches come from an untyped NSSet
+
             if t.tapCount > 1 {
                 clearAll()
                 return
@@ -52,7 +54,7 @@ class TouchDrawView: UIView {
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-                println("Touches Moved with \(touches.count) touches")
+
         for t in touches {
             let t = t as UITouch //touches come from an untyped NSSet
             let key = NSValue(nonretainedObject: t)
@@ -75,7 +77,6 @@ class TouchDrawView: UIView {
     }
 
     func endTouches(touches: NSSet){
-        println("Touches Ending  with \(touches.count) touches")
         for t in touches {
             let t = t as UITouch //touches come from an untyped NSSet
             let key = NSValue(nonretainedObject: t)
