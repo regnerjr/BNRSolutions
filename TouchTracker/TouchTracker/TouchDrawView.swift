@@ -4,7 +4,9 @@ class TouchDrawView: UIView {
 
     var linesInProcess = [NSValue:Line]()
     var completeLines = [Line]()
-    
+
+    var selectedLine: Line? = nil
+
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 10.0)
@@ -26,6 +28,33 @@ class TouchDrawView: UIView {
             CGContextStrokePath(context)
         }
         
+        //if there is a selected line draw it in green
+        if let selected = selectedLine {
+            UIColor.greenColor().set()
+            CGContextMoveToPoint(context, selected.begin.x, selected.begin.y)
+            CGContextAddLineToPoint(context, selected.end.x, selected.end.y)
+            CGContextStrokePath(context)
+        }
+        
+    }
+
+    func lineAtPoint(p: CGPoint) -> Line? {
+        
+        for line in completeLines {
+            let start = line.begin
+            let end = line.end
+            
+            for var t: CGFloat = 0.0 ; t <= 1.0; t += 0.05 {
+                let x = start.x + t * (end.x - start.x)
+                let y = start.y + t * (end.y - start.y)
+                
+                if hypot(x - p.x, y - p.y) < 20.0 {
+                    return line
+                }
+            }
+        }
+        return nil
+        
     }
 
     func clearAll(){
@@ -37,6 +66,14 @@ class TouchDrawView: UIView {
     //MARK: - Touch Handling
     @IBAction func handleTap(sender: UITapGestureRecognizer){
         println("Recognized Tap")
+        
+        let point = sender.locationInView(self)
+        selectedLine = lineAtPoint(point)
+        
+
+        //if we just tapped then don't draw a dot here.
+        linesInProcess.removeAll(keepCapacity: false)
+        setNeedsDisplay()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
