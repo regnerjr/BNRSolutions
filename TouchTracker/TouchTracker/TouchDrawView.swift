@@ -34,6 +34,11 @@ class TouchDrawView: UIView {
         setNeedsDisplay()
     }
 
+    //MARK: - Touch Handling
+    @IBAction func handleTap(sender: UITapGestureRecognizer){
+        println("Recognized Tap")
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 
 
