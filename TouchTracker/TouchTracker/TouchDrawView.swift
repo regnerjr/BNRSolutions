@@ -4,8 +4,6 @@ class TouchDrawView: UIView {
 
     var linesInProcess = [NSValue:Line]()
     var completeLines = [Line]()
-
-    var currentTouch: UITouch?
     
 
     override init(frame: CGRect) {
