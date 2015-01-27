@@ -5,17 +5,6 @@ class TouchDrawView: UIView {
     var linesInProcess = [NSValue:Line]()
     var completeLines = [Line]()
     
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.whiteColor()
-        multipleTouchEnabled = true
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 10.0)
