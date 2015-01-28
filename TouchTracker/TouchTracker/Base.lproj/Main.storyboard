@@ -18,7 +18,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
+                            <outlet property="moveRecognizer" destination="Ob9-QX-xgJ" id="wL3-4x-xsI"/>
                             <outletCollection property="gestureRecognizers" destination="Bh6-FV-pbQ" appends="YES" id="bSa-uB-Rut"/>
+                            <outletCollection property="gestureRecognizers" destination="qG6-Nw-qGg" appends="YES" id="GGn-nq-Dth"/>
+                            <outletCollection property="gestureRecognizers" destination="Ob9-QX-xgJ" appends="YES" id="xS9-7D-UCZ"/>
                         </connections>
                     </view>
                 </viewController>
@@ -28,6 +31,17 @@
                         <action selector="handleTap:" destination="8bC-Xf-vdC" id="1Gc-jr-mSr"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.5" id="qG6-Nw-qGg">
+                    <connections>
+                        <action selector="longPress:" destination="8bC-Xf-vdC" id="CwS-cT-Gz1"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <panGestureRecognizer cancelsTouchesInView="NO" minimumNumberOfTouches="1" id="Ob9-QX-xgJ">
+                    <connections>
+                        <action selector="moverLine:" destination="8bC-Xf-vdC" id="gl6-n3-rPb"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="Nmj-IP-iC1"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

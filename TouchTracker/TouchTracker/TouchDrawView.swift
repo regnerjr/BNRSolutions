@@ -2,6 +2,8 @@ import UIKit
 
 class TouchDrawView: UIView {
 
+    @IBOutlet var moveRecognizer: UIPanGestureRecognizer!
+    
     var linesInProcess = [NSValue:Line]()
     var completeLines = [Line]()
 
@@ -63,14 +65,9 @@ class TouchDrawView: UIView {
         setNeedsDisplay()
     }
     
-    func deleteLine(line: Line?){
-        println("Delete Line \(line)")
-    }
-
     //MARK: - Touch Handling
     @IBAction func handleTap(sender: UITapGestureRecognizer){
-        println("Recognized Tap")
-        
+
         let point = sender.locationInView(self)
         selectedLine = lineAtPoint(point)
         
@@ -143,16 +140,87 @@ class TouchDrawView: UIView {
         setNeedsDisplay()
     }
     
-    override func canBecomeFirstResponder() -> Bool {
-        return true
-    }
- 
+    //MARK: - MenuController
+    
     func displayMenu(atPoint point: CGPoint){
         let menu = UIMenuController.sharedMenuController()
-        let deleteItem = UIMenuItem(title: "Delete", action: Selector("deleteLine:"))
+        let deleteItem = UIMenuItem(title: "Delete", action: Selector("deleteSelectedLine"))
         menu.menuItems = [deleteItem]
         menu.setTargetRect(CGRect(x: point.x, y: point.y, width: 0, height: 0), inView: self)
         menu.setMenuVisible(true, animated: true)
+    }
+
+    func deleteSelectedLine(){
+
+        if let line = selectedLine {
+            //remove the selected line from the complete lines
+            completeLines = completeLines.filter{ $0 !== line}
+            selectedLine = nil
+        }
+        
+        setNeedsDisplay()
+    }
+
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+
+    //MARK: - Long Press
+    @IBAction func longPress(gr: UILongPressGestureRecognizer){
+
+
+        if gr.state == UIGestureRecognizerState.Began {
+            let point = gr.locationInView(self)
+            selectedLine = lineAtPoint(point)
+            
+            if selectedLine != nil {
+                linesInProcess.removeAll(keepCapacity: false)
+            }
+        } else if gr.state == UIGestureRecognizerState.Ended {
+            selectedLine = nil
+        }
+        self.setNeedsDisplay()
+    }
+    
+    //MARK: - Pan Handler
+    @IBAction func moverLine(gr: UIPanGestureRecognizer){
+        if selectedLine == nil {
+            return
+        }
+        
+        //when pan recognizer changes position
+        if gr.state == UIGestureRecognizerState.Changed {
+            let translation = gr.translationInView(self)
+            selectedLine = translateLine(selectedLine, translation)
+            setNeedsDisplay()
+            gr.setTranslation(CGPointZero, inView: self)
+        }
+    }
+}
+
+func translateLine(selectedLine: Line?, translation: CGPoint) -> Line? {
+    if let line = selectedLine {
+        var begin = line.begin
+        var end = line.end
+        begin.x += translation.x
+        begin.y += translation.y
+        end.x   += translation.x
+        end.y   += translation.y
+        selectedLine?.begin = begin
+        selectedLine?.end = end
+        return selectedLine
+    }
+    return nil
+}
+
+extension TouchDrawView: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == moveRecognizer {
+            return true
+        } else {
+            return false
+        }
     }
     
 }
