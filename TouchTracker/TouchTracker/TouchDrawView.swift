@@ -62,6 +62,10 @@ class TouchDrawView: UIView {
         completeLines.removeAll(keepCapacity: false)
         setNeedsDisplay()
     }
+    
+    func deleteLine(line: Line?){
+        println("Delete Line \(line)")
+    }
 
     //MARK: - Touch Handling
     @IBAction func handleTap(sender: UITapGestureRecognizer){
@@ -70,6 +74,12 @@ class TouchDrawView: UIView {
         let point = sender.locationInView(self)
         selectedLine = lineAtPoint(point)
         
+        if let selected = selectedLine {
+            self.becomeFirstResponder()
+            displayMenu(atPoint: point)
+        } else {
+            UIMenuController.sharedMenuController().setMenuVisible(false, animated: true)
+        }
 
         //if we just tapped then don't draw a dot here.
         linesInProcess.removeAll(keepCapacity: false)
@@ -131,6 +141,18 @@ class TouchDrawView: UIView {
             }
         }
         setNeedsDisplay()
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+ 
+    func displayMenu(atPoint point: CGPoint){
+        let menu = UIMenuController.sharedMenuController()
+        let deleteItem = UIMenuItem(title: "Delete", action: Selector("deleteLine:"))
+        menu.menuItems = [deleteItem]
+        menu.setTargetRect(CGRect(x: point.x, y: point.y, width: 0, height: 0), inView: self)
+        menu.setMenuVisible(true, animated: true)
     }
     
 }
