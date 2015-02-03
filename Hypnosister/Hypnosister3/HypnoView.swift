@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Hypnosister3
-//
-//  Created by John Regner on 8/23/14.
-//  Copyright (c) 2014 In Your Dreams Software. All rights reserved.
-//
-
 import UIKit
 
 class HypnosisView: UIView {
@@ -70,4 +62,19 @@ class HypnosisView: UIView {
         }
     }
 
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        if let t = touches.anyObject() as? UITouch {
+            let p = t.locationInView(self)
+            boxLayer.position = p
+        }
+    }
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        if let t = touches.anyObject() as? UITouch {
+            let p = t.locationInView(self)
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
+            boxLayer.position = p
+            CATransaction.commit()
+        }
+    }
 }
