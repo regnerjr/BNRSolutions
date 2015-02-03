@@ -65,7 +65,7 @@ class HypnosisView: UIView {
 
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
         if motion == UIEventSubtype.MotionShake {
-            println(" Device started shaking!")
+            println("Device started shaking!")
             self.circleColor = UIColor.redColor()
         }
     }
