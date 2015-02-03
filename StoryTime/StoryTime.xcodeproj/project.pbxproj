@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03C5AECB930C5A715C88AB7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43663BE5DE417F2C4F8697 /* AppDelegate.swift */; };
 		044EB86C270B6ED137F047A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81EEE59E167D7ABE6BD36E3C /* Images.xcassets */; };
+		52FDB2CB1A818192002C8050 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FDB2CA1A818192002C8050 /* ModalViewController.swift */; };
 		618E2E12DCCFEB33002648F9 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B3ABFBC01404F5C068A72 /* Main.storyboard */; };
 		D70A087A6CA0A956320FFEE7 /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = CDA85187FD59633B927B5555 /* LaunchScreen.xib */; };
 		E84E840DA8265EF51EBA323E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C449A5C1CEA7A5692B7BE7 /* Foundation.framework */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		29C449A5C1CEA7A5692B7BE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		52FDB2CA1A818192002C8050 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		654EE9FEFC3E34164DAFE015 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81EEE59E167D7ABE6BD36E3C /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		83E0C2978134D7A41B66DF95 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		C7CCB31D4C2BF0A0922C0CF8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				52FDB2CA1A818192002C8050 /* ModalViewController.swift */,
 				DC43663BE5DE417F2C4F8697 /* AppDelegate.swift */,
 			);
 			path = Controllers;
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FDB2CB1A818192002C8050 /* ModalViewController.swift in Sources */,
 				03C5AECB930C5A715C88AB7A /* AppDelegate.swift in Sources */,
 				618E2E12DCCFEB33002648F9 /* Main.storyboard in Sources */,
 				D70A087A6CA0A956320FFEE7 /* LaunchScreen.xib in Sources */,
