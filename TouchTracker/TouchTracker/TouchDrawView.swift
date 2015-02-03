@@ -38,6 +38,11 @@ class TouchDrawView: UIView {
             CGContextStrokePath(context)
         }
         
+        var f = 0.0
+        for i in 1..<1000 {
+            f = f + sin(sin(Double(time(nil)) + Double(i)))
+        }
+        
     }
 
     func lineAtPoint(p: CGPoint) -> Line? {
