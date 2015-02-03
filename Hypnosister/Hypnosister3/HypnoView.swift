@@ -3,6 +3,20 @@ import QuartzCore
 
 class HypnosisView: UIView {
 
+    let boxLayer: CALayer = {
+        let layer =  CALayer()
+        layer.bounds = CGRect(x: 0.0, y: 0.0, width: 85.0, height: 85.0)
+        layer.position = CGPoint(x: 160.0, y: 100.0)
+        
+        let redish = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.5).CGColor
+        layer.backgroundColor = redish
+        
+        let layerImage = UIImage(named: "Hypno.png")?.CGImage
+        layer.contents = layerImage
+        layer.contentsRect = CGRect(x: -0.1, y: -0.1, width: 1.2, height: 1.2)
+        layer.contentsGravity = kCAGravityResizeAspect
+        return layer
+    }()
     var circleColor: UIColor = UIColor.lightGrayColor() {
         didSet {
             self.setNeedsDisplay()
@@ -41,15 +55,6 @@ class HypnosisView: UIView {
 
         text.drawInRect(textRect, withAttributes: [NSFontAttributeName: font])
         CGContextSetShadowWithColor(ctx, CGSize(width: 0, height: 0), 0.0, UIColor.clearColor().CGColor)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.clearColor()
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 
     override func canBecomeFirstResponder() -> Bool {

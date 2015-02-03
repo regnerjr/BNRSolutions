@@ -15,6 +15,8 @@ class HypnoViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.layer.addSublayer(HypnoView.boxLayer)
+        
     }
 
     override func didReceiveMemoryWarning() {
