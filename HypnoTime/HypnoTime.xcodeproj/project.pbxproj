@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52750A101A7D3F70002BAA60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52750A0F1A7D3F70002BAA60 /* QuartzCore.framework */; };
 		EB330DE919B3D31E00A6ADBC /* HypnoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB330DE819B3D31E00A6ADBC /* HypnoView.swift */; };
 		EB330DEB19B3DA5C00A6ADBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB330DEA19B3DA5C00A6ADBC /* MapViewController.swift */; };
 		EB330DED19B3DAEA00A6ADBC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB330DEC19B3DAEA00A6ADBC /* MapKit.framework */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52750A0F1A7D3F70002BAA60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB330DE819B3D31E00A6ADBC /* HypnoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HypnoView.swift; path = ../../Hypnosister/Hypnosister3/HypnoView.swift; sourceTree = "<group>"; };
 		EB330DEA19B3DA5C00A6ADBC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EB330DEC19B3DAEA00A6ADBC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52750A101A7D3F70002BAA60 /* QuartzCore.framework in Frameworks */,
 				EB330DED19B3DAEA00A6ADBC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +102,7 @@
 		EB7E4D9619B3CEDB001444AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52750A0F1A7D3F70002BAA60 /* QuartzCore.framework */,
 				EB330DEC19B3DAEA00A6ADBC /* MapKit.framework */,
 				EB7E4D9719B3CEDB001444AE /* Info.plist */,
 			);
