@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		521D3A831A857D5C00CC36AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3A821A857D5C00CC36AE /* AppDelegate.swift */; };
-		521D3A851A857D5C00CC36AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3A841A857D5C00CC36AE /* ViewController.swift */; };
 		521D3A8A1A857D5C00CC36AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521D3A891A857D5C00CC36AE /* Images.xcassets */; };
 		521D3A8D1A857D5C00CC36AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521D3A8B1A857D5C00CC36AE /* LaunchScreen.xib */; };
 		521D3A991A857D5C00CC36AE /* NerdFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3A981A857D5C00CC36AE /* NerdFeedTests.swift */; };
 		521D3AA71A857F5B00CC36AE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3AA61A857F5B00CC36AE /* ListViewController.swift */; };
+		5267AD111A8A835800A519F0 /* RSSChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267AD101A8A835800A519F0 /* RSSChannel.swift */; };
+		5267AD131A8A859300A519F0 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267AD121A8A859300A519F0 /* RSSItem.swift */; };
+		5267AD151A8AA18700A519F0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267AD141A8AA18700A519F0 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		521D3A7D1A857D5C00CC36AE /* NerdFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521D3A811A857D5C00CC36AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521D3A821A857D5C00CC36AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		521D3A841A857D5C00CC36AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		521D3A891A857D5C00CC36AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		521D3A8C1A857D5C00CC36AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		521D3A921A857D5C00CC36AE /* NerdFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		521D3A971A857D5C00CC36AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521D3A981A857D5C00CC36AE /* NerdFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdFeedTests.swift; sourceTree = "<group>"; };
 		521D3AA61A857F5B00CC36AE /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5267AD101A8A835800A519F0 /* RSSChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSChannel.swift; sourceTree = "<group>"; };
+		5267AD121A8A859300A519F0 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
+		5267AD141A8AA18700A519F0 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +81,11 @@
 		521D3A7F1A857D5C00CC36AE /* NerdFeed */ = {
 			isa = PBXGroup;
 			children = (
+				5267AD141A8AA18700A519F0 /* WebViewController.swift */,
 				521D3AA61A857F5B00CC36AE /* ListViewController.swift */,
+				5267AD101A8A835800A519F0 /* RSSChannel.swift */,
+				5267AD121A8A859300A519F0 /* RSSItem.swift */,
 				521D3A821A857D5C00CC36AE /* AppDelegate.swift */,
-				521D3A841A857D5C00CC36AE /* ViewController.swift */,
 				521D3A891A857D5C00CC36AE /* Images.xcassets */,
 				521D3A8B1A857D5C00CC36AE /* LaunchScreen.xib */,
 				521D3A801A857D5C00CC36AE /* Supporting Files */,
@@ -211,9 +217,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				521D3A851A857D5C00CC36AE /* ViewController.swift in Sources */,
 				521D3A831A857D5C00CC36AE /* AppDelegate.swift in Sources */,
+				5267AD111A8A835800A519F0 /* RSSChannel.swift in Sources */,
 				521D3AA71A857F5B00CC36AE /* ListViewController.swift in Sources */,
+				5267AD151A8AA18700A519F0 /* WebViewController.swift in Sources */,
+				5267AD131A8A859300A519F0 /* RSSItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +407,7 @@
 				521D3A9E1A857D5C00CC36AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		521D3A9F1A857D5C00CC36AE /* Build configuration list for PBXNativeTarget "NerdFeedTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +416,7 @@
 				521D3AA11A857D5C00CC36AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
