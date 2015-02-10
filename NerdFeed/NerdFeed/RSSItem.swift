@@ -30,9 +30,11 @@ extension RSSItem: NSXMLParserDelegate {
         if let string = string {
             switch currentlyUpdating {
             case .Some(.Title):
-                title = append(title, string)
+                title = string
+                currentlyUpdating = nil
             case .Some(.Link):
-                link = append(link, string)
+                link = string
+                currentlyUpdating = nil
             case .None:
                 break //nothing to do here
             }
@@ -43,11 +45,4 @@ extension RSSItem: NSXMLParserDelegate {
             parser.delegate = parentParserDelegate
         }
     }
-}
-
-
-func append(maybeNil: Optional<String>, maybeAppend: Optional<String>) -> String{
-    let first = maybeNil ?? ""
-    let second = maybeAppend ?? ""
-    return first + second
 }

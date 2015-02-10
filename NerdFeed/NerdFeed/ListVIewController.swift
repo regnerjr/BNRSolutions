@@ -3,8 +3,10 @@ import UIKit
 class ListViewController: UITableViewController {
     
     var connection: NSURLConnection?
-    var xmlData: NSMutableData?
+    var xmlData = NSPurgeableData()
     var channel: RSSChannel?
+
+    lazy var webViewController = WebViewController()
 
     //MARK: - Init
     override init(style: UITableViewStyle) {
@@ -44,11 +46,27 @@ class ListViewController: UITableViewController {
 
         return cell
     }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("Selected Row")
+        let entry = channel?.items[indexPath.row]
+        println(entry)
+        let link = entry?.link
+        println(link)
+        if let link = link {
+            if let url = NSURL(string: link){
+                println("URL: \(url)")
+                let req = NSURLRequest(URL: url)
+                print(req)
+                webViewController.webView.loadRequest(req)
+                self.navigationController?.pushViewController(webViewController, animated: true)
+                webViewController.navigationItem.title = entry?.title
+            }
+        }
+
+    }
     
     func fetchEntries(){
-        //new data container for the data returned
-        xmlData = NSMutableData()
-
         //construct URL
         if let url = NSURL(string: "http://forums.bignerdranch.com/smartfeed.php?"
             + "limit=1_DAY&sort_by=standard&feed_type=RSS2.0&feed_style=COMPACT"){
@@ -61,7 +79,7 @@ class ListViewController: UITableViewController {
     }
 
     func connection(conn: NSURLConnection, didReceiveData data: NSData){
-        xmlData?.appendData(data)
+        xmlData.appendData(data)
     }
 }
 
@@ -70,25 +88,23 @@ extension ListViewController: NSURLConnectionDataDelegate {
 
     func connectionDidFinishLoading(connection: NSURLConnection) {
         //make sure we got some data
-        if let data = xmlData {
-            let xmlCheck = NSString(data: data, encoding: NSUTF8StringEncoding)
+            let xmlCheck = NSString(data: xmlData, encoding: NSUTF8StringEncoding)
 
-            let parser = NSXMLParser(data: data)
+            let parser = NSXMLParser(data: xmlData)
             parser.delegate = self
             parser.parse()
-            self.xmlData = nil
+            xmlData.endContentAccess()
             self.connection = nil
             tableView.reloadData()
             println(" - \(channel)")
             println(" - \(channel?.title)")
             println(" - \(channel?.infoString)")
-        }
     }
 
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {
         //release the connection we are done with it
         self.connection = nil
-        self.xmlData = nil
+        xmlData.endContentAccess()
         let errorString = String(format: "FetchFailed: %@", arguments: [error.localizedDescription])
 
 
